@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/SokainaDaabalJEE.iml" filepath="$PROJECT_DIR$/.idea/SokainaDaabalJEE.iml" />
       <module fileurl="file://$PROJECT_DIR$/TP-1-Partie1-1/TP-1-Partie1-1.iml" filepath="$PROJECT_DIR$/TP-1-Partie1-1/TP-1-Partie1-1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TP-1-Partie1-2-InjectionDependanceviaSpring/TP-1-Partie1-2-InjectionDependanceviaSpring.iml" filepath="$PROJECT_DIR$/TP-1-Partie1-2-InjectionDependanceviaSpring/TP-1-Partie1-2-InjectionDependanceviaSpring.iml" />
     </modules>
   </component>
 </project>

@@ -4,6 +4,7 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/TP-1-Partie1-1/pom.xml" />
+        <option value="$PROJECT_DIR$/TP-1-Partie1-2-InjectionDependanceviaSpring/pom.xml" />
       </list>
     </option>
   </component>
