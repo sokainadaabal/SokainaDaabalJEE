@@ -14,7 +14,7 @@ public class Presentation2 {
          /*
         Injection des dependances par instanciation dynamique => Fichier de configuration
          */
-        Scanner scanner = new Scanner(new File(""));
+        Scanner scanner = new Scanner(new File("src/main/java/ma/enset/config.txt"));
         String daoClasseName= scanner.nextLine();
         Class cDao = Class.forName(daoClasseName);
         IDao iDao=(IDao) cDao.newInstance();// creation instance , apple constructeur par defaut.
