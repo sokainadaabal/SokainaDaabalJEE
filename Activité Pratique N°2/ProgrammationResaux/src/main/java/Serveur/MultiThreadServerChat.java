@@ -56,11 +56,11 @@ public class MultiThreadServerChat extends Thread {
                 pw.println(" Bonjour vous etes le client numéro " + ClientId);
                 String request;
                 String message = "";
-                List<Integer> ids = new ArrayList<>();
+                List<Integer> ids;
                 while ((request = br.readLine()) != null) {
                     if (request.contains("=>")) {
                         ids = new ArrayList<>();
-                        String[] items = request.split("=> ");
+                        String[] items = request.split("=>");
                         String clients = items[0];
                         message = items[1];
                         if (clients.contains(",")) {
@@ -74,25 +74,24 @@ public class MultiThreadServerChat extends Thread {
                         ids = conversations.stream().map(c -> c.ClientId).collect(Collectors.toList());
                     }
                     System.out.println("Nouvel Message => " + request + " par " + socket.getRemoteSocketAddress());
-                    broadcastMessafe(message,socket,ids);
+                    broadcastMessafe(message,this);
 
                 }
-
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
 
         }
 
-        public void broadcastMessafe(String message, Socket from, List<Integer> clientds) {
+        public void broadcastMessafe(String message, Conversation from) {
             try {
                 for (Conversation conversation : conversations) {
-                    Socket socket1 = conversation.socket;
-                    if ((socket1 != from) && clientds.contains(conversation.ClientId)) {
-                        OutputStream os = socket.getOutputStream();
-                        PrintWriter printWriter = new PrintWriter(os, true);
-                        printWriter.println(message);
-                    }
+                    if (conversation==from) continue;
+                    Socket socket = conversation.socket;
+                    OutputStream os = socket.getOutputStream();
+                    PrintWriter printWriter = new PrintWriter(os, true);
+                    printWriter.println(from.ClientId+" : "+message);
+
                 }
             } catch (IOException e) {
                 throw new RuntimeException();
