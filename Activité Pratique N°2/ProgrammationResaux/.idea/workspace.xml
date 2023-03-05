@@ -5,12 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2c3a75fc-a3ae-4140-acb7-9f3974e84077" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../../Activité Pratique N° 1/TP-1-Partie1-1/src/main/java/ma/enset/presentation/Presentation2.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Activité Pratique N° 1/TP-1-Partie1-1/src/main/java/ma/enset/presentation/Presentation2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Serveur/MultiThreadServerChat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Activité Pratique N° 1/TP-1-Partie1-2-InjectionDependanceviaSpring/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Activité Pratique N° 1/TP-1-Partie1-2-InjectionDependanceviaSpring/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
@@ -30,7 +40,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/a.DESKTOP-1V51SMC/OneDrive/Documents/GitHub/SokainaDaabalJEE/Activité Pratique N° 1/TP-1-Partie1-1"
+    "last_opened_file_path": "C:/Users/a.DESKTOP-1V51SMC/OneDrive/Documents/GitHub/SokainaDaabalJEE/Activité Pratique N° 1/TP-1-Partie1-2-InjectionDependanceviaSpring"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -41,7 +51,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677498271568</updated>
-      <workItem from="1677498272723" duration="749000" />
+      <workItem from="1677498272723" duration="752000" />
+      <workItem from="1677503125167" duration="1297000" />
+      <workItem from="1678034517885" duration="3723000" />
     </task>
     <servers />
   </component>
