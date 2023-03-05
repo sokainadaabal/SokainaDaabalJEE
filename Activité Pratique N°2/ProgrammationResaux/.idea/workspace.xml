@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2c3a75fc-a3ae-4140-acb7-9f3974e84077" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Client/CustomClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Client/CustomClient-Python.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Serveur/MultiThreadServerChat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Serveur/MultiThreadServerChat.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,6 +17,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -40,10 +40,14 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "last_opened_file_path": "C:/Users/a.DESKTOP-1V51SMC/OneDrive/Documents/GitHub/SokainaDaabalJEE/Activité Pratique N° 1/TP-1-Partie1-2-InjectionDependanceviaSpring",
-    "nodejs_package_manager_path": "npm"
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.37284237",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.MultiThreadServerChat">
+  <component name="RunManager">
     <configuration name="CustomClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Client.CustomClient" />
       <module name="ProgrammationResaux" />
@@ -87,7 +91,7 @@
       <updated>1677498271568</updated>
       <workItem from="1677498272723" duration="752000" />
       <workItem from="1677503125167" duration="1297000" />
-      <workItem from="1678034517885" duration="6464000" />
+      <workItem from="1678034517885" duration="7574000" />
     </task>
     <servers />
   </component>
@@ -104,5 +108,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
