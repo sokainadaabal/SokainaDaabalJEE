@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c3a75fc-a3ae-4140-acb7-9f3974e84077" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client/InterfaceJavaFx/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client/InterfaceJavaFx/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client/InterfaceJavaFx/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client/InterfaceJavaFx/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client/InterfaceJavaFx/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client/InterfaceJavaFx/Main.java" afterDir="false" />
-    </list>
+    <list default="true" id="2c3a75fc-a3ae-4140-acb7-9f3974e84077" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -283,7 +278,7 @@
       <workItem from="1678034517885" duration="7574000" />
       <workItem from="1678042146764" duration="4383000" />
       <workItem from="1678046599558" duration="1382000" />
-      <workItem from="1678056628922" duration="2672000" />
+      <workItem from="1678056628922" duration="2794000" />
     </task>
     <servers />
   </component>
