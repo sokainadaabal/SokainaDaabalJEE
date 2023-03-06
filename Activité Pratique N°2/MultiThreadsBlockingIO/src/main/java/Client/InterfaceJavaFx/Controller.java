@@ -58,12 +58,12 @@ public class Controller implements Initializable {
                  hBox.setAlignment(Pos.CENTER_RIGHT);
                  hBox.setPadding(new Insets(5,5,5,10));
                  Text text = new Text(messageToSend);
-                 TextField textField=new TextField(String.valueOf(text));
-                 textField.setStyle("-fx-color:rgb(239,242,255);" +"-fx-background-color:rgb(15,125,242);"+"-fx-background-raduis:20px");
-                 textField.setPadding(new Insets(5,10,5,10));
+                 TextFlow textFlow=new TextFlow(text);
+                 textFlow.setStyle(" -fx-color:rgb(239,242,255); "+" -fx-background-color:rgb(15,125,242);"+"-fx-background-radius:20px");
+                 textFlow.setPadding(new Insets(5,10,5,10));
                  text.setFill(Color.color(0.934,0.945,0.996));
 
-                 hBox.getChildren().add(textField);
+                 hBox.getChildren().add(textFlow);
                  vbox_message.getChildren().add(hBox);
 
                  Client.envoyerMessage(messageToSend);
@@ -80,13 +80,9 @@ public class Controller implements Initializable {
 
         Text text = new Text(messageFromClient);
         TextFlow textFlow= new TextFlow( text);
-        textFlow.setStyle("-fx-color: rgb(259,242,255); " +
-                "-fx-background-radius: 20px; " +
-                "-fx-background-color: rgb(15,125,242);");
+        textFlow.setStyle("-fx-color: rgb(259,242,255); "+"-fx-background-radius: 20px; " +"-fx-background-color: rgb(15,125,242);");
         textFlow.setPadding(new Insets(5, 10, 5, 10));
-        textFlow.setStyle("-fx-font-style: Italic; " +
-                "-fx-font-size: 10px; " +
-                "-fx-fill: rgb(147,147,147);");
+        textFlow.setStyle("-fx-font-style: Italic; " + "-fx-font-size: 10px; " + "-fx-fill: rgb(147,147,147);");
 
         hBox.getChildren().add(textFlow);
 
