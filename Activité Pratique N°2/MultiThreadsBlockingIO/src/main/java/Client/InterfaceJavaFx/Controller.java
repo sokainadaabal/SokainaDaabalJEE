@@ -8,19 +8,17 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.control.Button;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
-import javafx.scene.control.TextField;
 import javafx.scene.text.TextFlow;
 
-
-import java.awt.*;
-import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.URL;
-
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
@@ -33,25 +31,26 @@ public class Controller implements Initializable {
     private VBox vbox_message;
 
     @FXML
-    private  Scrollbar sp_main;
+    private  ScrollPane sp_main;
 
     private Client Client;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
          try{
-             Client = new Client(new ServerSocket(1234));
+             Client = new Client(new Socket("localhost",1234));
          }catch (Exception e) {
              throw new RuntimeException(e);
          }
 
         vbox_message.heightProperty().addListener(new ChangeListener<Number>() {
-             @Override
-             public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
-                 sp_main.setValue((Integer) newValue);
-                 Client.recoitMessage(vbox_message);
-             }
+            @Override
+            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+                sp_main.setHvalue((Double) newValue);
+                Client.recoitMessage(vbox_message);
+            }
+
          });
-         button_send.addActionListener(e -> {
+         button_send.setOnAction(e -> {
              String messageToSend = tf_message.getText();
              if(!messageToSend.isEmpty())
              {

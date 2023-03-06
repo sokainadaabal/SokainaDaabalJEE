@@ -13,10 +13,9 @@ public class Client {
 
     private BufferedReader bufferedReader;
     private BufferedWriter bufferedWriter;
-    public Client(ServerSocket local) {
-      this.serverSocket=local;
+    public Client(Socket local) {
+      this.socket=local;
         try {
-            this.socket=serverSocket.accept();
             this.bufferedReader= new BufferedReader(new InputStreamReader(socket.getInputStream()));
             this.bufferedWriter=new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
         } catch (IOException e) {
@@ -41,13 +40,17 @@ public class Client {
                     while(socket.isConnected()){
                         try {
                             String message= bufferedReader.readLine();
+                            Controller.addLabel(message,vbox_message);
 
                         } catch (IOException e) {
-                            throw new RuntimeException(e);
+                            System.out.println("erreur de recevoir message");
+                            e.printStackTrace();
+                            FermerTous(socket,bufferedReader,bufferedWriter);
+                            break;
                         }
                     }
                 }
-            })
+            }).start();
     }
 
     public void envoyerMessage(String messageToSend) {
