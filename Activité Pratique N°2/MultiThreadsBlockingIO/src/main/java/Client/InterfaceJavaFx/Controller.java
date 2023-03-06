@@ -76,14 +76,10 @@ public class Controller implements Initializable {
         HBox hBox = new HBox();
         hBox.setAlignment(Pos.CENTER_LEFT);
         hBox.setPadding(new Insets(5, 5, 5, 10));
-
-
         Text text = new Text(messageFromClient);
         TextFlow textFlow= new TextFlow( text);
-        textFlow.setStyle("-fx-color: rgb(259,242,255); "+"-fx-background-radius: 20px; " +"-fx-background-color: rgb(15,125,242);");
+        textFlow.setStyle("-fx-background-color: rgb(125,125,130); "+"-fx-background-radius: 20px; ");
         textFlow.setPadding(new Insets(5, 10, 5, 10));
-        textFlow.setStyle("-fx-font-style: Italic; " + "-fx-font-size: 10px; " + "-fx-fill: rgb(147,147,147);");
-
         hBox.getChildren().add(textFlow);
 
         Platform.runLater(() -> vbox.getChildren().add(hBox));
