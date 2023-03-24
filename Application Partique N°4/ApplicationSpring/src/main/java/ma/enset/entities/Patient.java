@@ -1,6 +1,9 @@
 package ma.enset.entities;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.DecimalMin;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,6 +23,8 @@ public class Patient {
     // generate automatiquement l'identificateur
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotEmpty
+    @Size(min=3 ,max=20)
     private String nom;
 
     // pour voir la date sous format date et non timestamp
@@ -27,5 +32,6 @@ public class Patient {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dateNaissance;
     private boolean malade;
+    @DecimalMin("100")
     private int score;
 }
