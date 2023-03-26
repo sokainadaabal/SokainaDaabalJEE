@@ -5,26 +5,21 @@ import ma.enset.repositories.PatientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+
 
 import java.util.Date;
 
 
 @SpringBootApplication
-
 public class ApplicationSpringApplication {
 
     @Autowired
     PatientRepository patientRepository;
     public static void main(String[] args) {
-
         SpringApplication.run(ApplicationSpringApplication.class, args);
     }
-   // @Bean  // executer au demarage
+   // @Bean  // execute au demarrage
     // pour faire un traitement en demarrage et va executer ce code
     CommandLineRunner commandLineRunner(){
         return args -> {

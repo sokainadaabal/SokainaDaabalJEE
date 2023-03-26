@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6"
       layout:decorate="~{NavBar.html}">
 <head>
     <meta charset="UTF-8">
@@ -30,7 +31,7 @@
                     <th class="col"> Date de Naissance</th>
                     <th class="col"> Malade</th>
                     <th class="col"> Score</th>
-                    <th class="col"> Action</th>
+                    <th class="col"  sec:authorize="hasRole('ADMIN')"> Action </th>
                 </tr>
                 </thead>
                 <tbody>
@@ -40,9 +41,10 @@
                     <td th:text="${p.dateNaissance}"></td>
                     <td th:text="${p.malade}"></td>
                     <td th:text="${p.score}"></td>
-                    <td>
+                    <td sec:authorize="hasRole('ADMIN')">
                         <a onclick="return confirm('Etes vous sure?')" class="btn btn-danger"
-                           th:href="@{delete(id=${p.id},KeyWord=${keyWord})}">Delete</a>
+                           th:href="@{/admin/delete(id=${p.id},KeyWord=${keyWord})}">Delete</a>
+                        <a  class="btn btn-success" th:href="@{/admin/editPatient(id=${p.id},KeyWord=${keyWord},page=${currentPage})}">Edit</a>
                     </td>
                 </tr>
                 </tbody>
@@ -54,7 +56,7 @@
                     <li class="page-item" th:each="page,status:${pages}">
                         <a th:class="${status.index==currentPage?'btn btn-info ms-1':'btn btn-outline-info ms-1'}"
                            th:text="${status.index}"
-                           th:href="@{index(page=${status.index},KeyWord=${keyWord})}"></a>
+                           th:href="@{/user/index(page=${status.index},KeyWord=${keyWord})}"></a>
                     </li>
                 </ul>
             </nav>

@@ -15,7 +15,12 @@
         <div  layout:fragment="content">
             <div class="col-md-6 offset-3">
                 <div class="container mt-2">
-                    <form method="post" th:action="@{/admin/save}">
+                    <form method="post" th:action="@{/admin/save(page=${page},KeyWord=${keyword})}">
+                        <div>
+                            <label >ID</label>
+                            <label th:text="${patient.id}"></label>
+                            <span th:errors="${patient.id}" class="text-danger"></span>
+                        </div>
                         <div>
                             <label for="nom">Nom du Patients</label>
                             <input id="nom" class="form-control" type="text" name="nom" th:value="${patient.nom}">
