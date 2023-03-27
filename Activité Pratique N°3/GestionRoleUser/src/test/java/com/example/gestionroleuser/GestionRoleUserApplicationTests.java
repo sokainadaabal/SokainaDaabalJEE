@@ -1,13 +1,13 @@
-package ma.enset.getionpatient;
+package com.example.gestionroleuser;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class GetionPatientApplicationTests {
+class GestionRoleUserApplicationTests {
 
-    @Test
-    void contextLoads() {
-    }
+	@Test
+	void contextLoads() {
+	}
 
 }
