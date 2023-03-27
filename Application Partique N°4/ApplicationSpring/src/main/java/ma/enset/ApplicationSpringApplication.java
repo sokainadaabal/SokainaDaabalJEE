@@ -2,10 +2,14 @@ package ma.enset;
 
 import ma.enset.entities.Patient;
 import ma.enset.repositories.PatientRepository;
+import ma.enset.sec.services.SecurityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 
 import java.util.Date;
@@ -34,4 +38,24 @@ public class ApplicationSpringApplication {
             });
         };
     }
+    @Bean
+    PasswordEncoder passwordEncoder(){
+        return new BCryptPasswordEncoder();
+    }
+
+    //@Bean
+    CommandLineRunner saveUsers(SecurityService securityService){
+
+        return args->{
+            securityService.saveNewUser("mohammed","1234","1234");
+            securityService.saveNewUser("saad","1994","1994");
+            securityService.saveNewUser("sokaina","1999","1999");
+
+            securityService.saveNewRole("USER","");
+            securityService.saveNewRole("ADMIN","");
+
+            securityService.addRoleToUser("mohammed","USER");
+            securityService.addRoleToUser("saad","ADMIN");
+            securityService.addRoleToUser("sokaina","ADMIN");
+        };}
 }

@@ -1,4 +1,5 @@
 package ma.enset.sec;
+import ma.enset.sec.services.UserDetailsServiceImpl;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -10,18 +11,18 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.provisioning.JdbcUserDetailsManager;
 import org.springframework.security.provisioning.UserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
 import javax.sql.DataSource;
-import java.util.ArrayList;
 
 
 @Configuration
@@ -29,7 +30,10 @@ import java.util.ArrayList;
 public class SecurityConfig {
     @Autowired
     private DataSource dataSource;
-
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+    @Autowired
+    private UserDetailsServiceImpl userDetailsService;
     // pycrypte un algo de cryptage de password ;
 /*    @Bean
     public InMemoryUserDetailsManager userDetailsService() {
@@ -58,29 +62,35 @@ public class SecurityConfig {
         users.add(admin);
         return new InMemoryUserDetailsManager(users);
     }*/
-    @Bean
+    /**@Bean
     public UserDetailsManager users() {
-        JdbcUserDetailsManager users = new JdbcUserDetailsManager(dataSource);
+       JdbcUserDetailsManager users = new JdbcUserDetailsManager(dataSource);
         users.setUsersByUsernameQuery("select username as principal,password as credentials,active from users where username=?");
         users.setAuthoritiesByUsernameQuery("select username as principal,role as role from users_roles where username=?");
         users.setRolePrefix("ROLE_");
         return users;
+        return  null;
+    }**/
+
+    @Bean
+    public DaoAuthenticationProvider authProvider() {
+        DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
+        authProvider.setUserDetailsService(userDetailsService);
+        authProvider.setPasswordEncoder(passwordEncoder);
+        return authProvider;
     }
+
 
     @Bean
     SecurityFilterChain defaultSecurityFilterChain(@NotNull HttpSecurity http) throws Exception {
         http.formLogin();
         http.authorizeRequests().requestMatchers("/").permitAll();
-        http.authorizeRequests().requestMatchers("/admin/**").hasRole("ADMIN");
-        http.authorizeRequests().requestMatchers("/user/**").hasRole("USER");
+        http.authorizeRequests().requestMatchers("/admin/**").hasAuthority("ADMIN");
+        http.authorizeRequests().requestMatchers("/user/**").hasAuthority("USER");
         http.authorizeRequests().requestMatchers("/webjars/***").permitAll();
         http.authorizeRequests().anyRequest().authenticated();
         http.exceptionHandling().accessDeniedPage("/403");
         return http.build();
     }
 
- @Bean
-    PasswordEncoder passwordEncoder(){
-        return new BCryptPasswordEncoder();
  }
-}
