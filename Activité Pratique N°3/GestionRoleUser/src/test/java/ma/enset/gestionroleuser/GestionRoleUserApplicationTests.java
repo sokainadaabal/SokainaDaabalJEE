@@ -1,4 +1,4 @@
-package com.example.gestionroleuser;
+package ma.enset.gestionroleuser;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
