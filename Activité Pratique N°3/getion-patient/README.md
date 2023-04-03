@@ -39,7 +39,7 @@ H2 est une base de données mémoire pour le test, dans le fichier ``` applicati
  Dans le packages reporistories ``` ma.enset.getionpatiet.repositories```, nous créons les reporistories  suivantes :
     - ``` PatientRepository.java ```
     
-### test 
+## test 
 
 pour effectuer le test, nous avons creer des donnees dans la classe ```GetionPatientApplication.java ```  qui contient le code suivant :
 
@@ -159,3 +159,6 @@ et dans le fichier ``` pom.xml ``` ajouter cette dépandance :
 ## test 
 Pour tester si migration de h2 vers MySQL bien passe . vérifier si les données sont insérer dans la base de données avec succés.
 
+
+
+Ce travail nous a permis de bien connaitre comment le Mapping Objet Relationnel se fait au niveau du Java grace à l’API JPA, et on a initié avec Hibernate, et bien évidement la manière de configuration d’un projet Spring pour faciliter la tache au développeur.
