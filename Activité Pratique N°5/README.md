@@ -218,7 +218,7 @@ JAX-WS (Java API for XML Web Services) Est un ensemble d'interfaces (API) De lan
  ### 3. Architecture du web service
  ![image](https://user-images.githubusercontent.com/48890714/229385403-c4a4abcf-89e8-4bd3-9f9e-d6d9fd90fffc.png)
 
- ### 4. Comment il trvail ?
+ ### 4. Comment il travaille ?
  
 ![image](https://user-images.githubusercontent.com/48890714/229385416-096992ed-3940-4875-8b07-7d64b1220922.png)
 ![image](https://user-images.githubusercontent.com/48890714/229385421-c891a194-d7a9-4adc-91d3-95998c542de7.png)
