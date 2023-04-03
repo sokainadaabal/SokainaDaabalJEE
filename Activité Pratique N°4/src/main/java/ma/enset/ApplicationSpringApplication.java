@@ -41,7 +41,7 @@ public class ApplicationSpringApplication {
     @Bean
     PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
-    }
+    } // algo qui permet de faire le hashage de password au lieu d'utiliser md5 crypt password
 
     //@Bean
     CommandLineRunner saveUsers(SecurityService securityService){
@@ -57,5 +57,6 @@ public class ApplicationSpringApplication {
             securityService.addRoleToUser("mohammed","USER");
             securityService.addRoleToUser("saad","ADMIN");
             securityService.addRoleToUser("sokaina","ADMIN");
+            securityService.addRoleToUser("sokaina","USER");
         };}
 }

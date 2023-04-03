@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-// montionner qu'il est un controller
+// mentionner qu'il est un controller
 @Controller
 @AllArgsConstructor
 public class PatientController {
@@ -22,7 +22,7 @@ public class PatientController {
 
     @GetMapping("/user/index")
     public String patient(Model model,
-                          @RequestParam(name="page",defaultValue = "0") int page // permet de identifier de quelpage
+                          @RequestParam(name="page",defaultValue = "0") int page // permet de identifier de quel page
                           ,@RequestParam(name="size",defaultValue = "5") int size,
                           @RequestParam(name = "KeyWord",defaultValue = "") String serachName){
         Page<Patient> pagePatients= patientRepository.findByNomContains(serachName,PageRequest.of(page,size));

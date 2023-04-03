@@ -21,7 +21,7 @@
             <form METHOD="get" th:action="@{index}">
                 <label> Mot a chercher </label>
                 <input type="text" placeholder="Rechercher" name="KeyWord" th:value="${KeyWord}">
-                <button type="submit">Rechercher</button>
+                <button type="submit" class="btn btn-info"><i class="bi bi-search"></i></button>
             </form>
             <table class="table">
                 <thead>
@@ -43,8 +43,8 @@
                     <td th:text="${p.score}"></td>
                     <td sec:authorize="hasAuthority('ADMIN')">
                         <a onclick="return confirm('Etes vous sure?')" class="btn btn-danger"
-                           th:href="@{/admin/delete(id=${p.id},KeyWord=${keyWord})}">Delete</a>
-                        <a  class="btn btn-success" th:href="@{/admin/editPatient(id=${p.id},KeyWord=${keyWord},page=${currentPage})}">Edit</a>
+                           th:href="@{/admin/delete(id=${p.id},KeyWord=${keyWord})}"><i class="bi bi-trash"></i></a>
+                        <a  class="btn btn-success" th:href="@{/admin/editPatient(id=${p.id},KeyWord=${keyWord},page=${currentPage})}"> <i class="bi bi-pencil"></i></a>
                     </td>
                 </tr>
                 </tbody>
