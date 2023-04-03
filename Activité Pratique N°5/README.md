@@ -208,12 +208,14 @@ On va tester notre service web avec un notre client céer avec Php.
  ### 1. Java
  
  Java est le langage de choix pour créer des applications à l'aide de code managé qui peut s'exécuter sur des appareils mobiles.
- Plus d'info (URL)![https://inside.java/2023/03/21/the-arrival-of-java-20/]
+ 
+ Plus d'info  [Java](https://inside.java/2023/03/21/the-arrival-of-java-20/)
  
  ### 2. JaxWS
 
 JAX-WS (Java API for XML Web Services) Est un ensemble d'interfaces (API) De langage de programmation Java dédié au développement de services web. L'ensemble fait partie de la plate-forme Java EE.
- Plus d'info (URL)![https://boowiki.info/art/plate-forme-java/jax-ws.html]
+ 
+ Plus d'info [JaxWS](https://boowiki.info/art/plate-forme-java/jax-ws.html)
  
  ### 3. Architecture du web service
  ![image](https://user-images.githubusercontent.com/48890714/229385403-c4a4abcf-89e8-4bd3-9f9e-d6d9fd90fffc.png)
