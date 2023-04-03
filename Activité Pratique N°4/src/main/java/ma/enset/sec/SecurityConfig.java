@@ -22,14 +22,14 @@ import org.springframework.security.provisioning.JdbcUserDetailsManager;
 import org.springframework.security.provisioning.UserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
-import javax.sql.DataSource;
+
 
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
-    @Autowired
-    private DataSource dataSource;
+
+    //private DataSource dataSource;
     @Autowired
     private PasswordEncoder passwordEncoder;
     @Autowired
