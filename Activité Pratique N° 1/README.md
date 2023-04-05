@@ -1,3 +1,5 @@
+# Activité Pratique N° 1- Inversion de contrôle et Injection des dépendances
+## Ennoncé
 ````
    Inversion de contrôle et Injection des dépendances
    Ce Project Contient : 
@@ -14,5 +16,4 @@
              - Version XML
              - Version annotations
  ````
-# Activité Pratique N° 1 - Inversion de contrôle et Injection des dépendances
 
