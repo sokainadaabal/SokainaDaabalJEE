@@ -1,4 +1,4 @@
-# Activité Pratique Web services SOAP WSDL UDDI avec JaxWS
+# Web services SOAP WSDL UDDI avec JaxWS
 
 ## Objectifs
  Création d'un service web qui permet de :
