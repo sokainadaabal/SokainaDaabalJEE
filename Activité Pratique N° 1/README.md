@@ -1,4 +1,4 @@
-# Activité Pratique N° 1- Inversion de contrôle et Injection des dépendances
+# Inversion de contrôle et Injection des dépendances
 ## Ennoncé
 ````
    Inversion de contrôle et Injection des dépendances
