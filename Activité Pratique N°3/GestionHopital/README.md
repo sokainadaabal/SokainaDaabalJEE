@@ -1,5 +1,6 @@
 # Use case JPA, Hibernate Spring Data, One To Many, One To One | Gestion d'un hopital
-Dans cette partie on va traiter  les relations One To Many et One To One avec l'utilisation de JPA , Hibernate et spring web pour implémenter un syéteme de gestion hopital. ce projet va initialiser par H2 vers la fin nous merger vers MySQL.
+
+Dans cette partie on va traiter  les relations One To Many et One To One avec l'utilisation de JPA, Hibernate et Spring web pour implémenter un Système de gestion hôpital. Ce projet va initialiser par H2 vers la fin nous merger vers MySql.
 ## Les dépandances :
 Nous devons créer le projet avec les dépandances suivantes :
 
@@ -25,18 +26,19 @@ spring.datasource.username=root
 spring.datasource.password=
 ```
 
-## les entités 
+## Les entités 
 
-Dans le packages entities  ``` com.example.gestionhopital.entities ```, nous créons nos entités suivantes :
+Dans le packages entities  ```com.example.gestionhopital.entities```, nous créons les entités suivantes :
+
 - ``` Patient.java ```
 - ``` Consultation.java ```
 - ``` Medecin.java ```
 - ``` RendezVous.java ```
 - ``` StatusRDV.java ``` : enumération permet de connaitre l'état de rendez vous
 
-## les repositories 
+## Les repositories 
 
-Dans le packages reporistories  com.example.gestionhopital.repositories, nous créons les reporistories suivantes :
+Dans le packages reporistories  ```com.example.gestionhopital.repositories```, nous créons les reporistories suivantes :
  
 - ``` PatientRepository.java ```
 - ``` ConsultationRepository.java ```
@@ -44,19 +46,19 @@ Dans le packages reporistories  com.example.gestionhopital.repositories, nous cr
 - ``` RendezVousRepository.java ```
 
 ## Les services 
-Dans le package ``` com.example.gestionhopital.services ``` , nous créons les services suivants :
+Dans le package service ```com.example.gestionhopital.services``` , nous créons les services suivants :
 
 - ``` HospitalService.java ```
 - ``` HospitalServiceImpl.java ```
 
 ## Les controllers
 
-Dans le package  ``` com.example.gestionhopital.web ```, nous créons les controllers suivants :
+Dans le package web ```com.example.gestionhopital.web```, nous créons les controllers suivants :
 - ``` PatientRestController.java ```
 
 ## Test 
 
-pour effectuer le test, nous avons creer des donnees dans la classe GestionHopitalApplication.java  qui contient le code suivant :
+Pour effectuer le test, nous avons creer des donnees dans la classe ```GestionHopitalApplication.java```  qui contient le code suivant :
 
 ``` java
 
@@ -110,7 +112,7 @@ pour effectuer le test, nous avons creer des donnees dans la classe GestionHopit
 }
 
 ```
-aprés avoir éxécuter le code, accéder à ce lien http://localhost:8080/h2-console est vérifier si les données existe dans la base de données H2.
+Aprés avoir éxécuter le code, accéder à ce lien http://localhost:8080/h2-console est vérifier si les données existe dans la base de données H2.
 
 ## Changer Base de données à MySQL
 
@@ -125,7 +127,7 @@ On va ajouter ces parametres au fichier application.properties.
   spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MariaDBDialect
   spring.jpa.show-sql=true
 ```
-et dans le fichier pom.xml ajouter cette dépandance :
+et dans le fichier pom.xml rajouter cette dépandance :
 
 ``` xml
    <dependency>
@@ -152,6 +154,8 @@ ou peut acceder à un URL ``` localhost:8080/patients ``` , grace à le code sui
           return patientRepository.findAll();
       }
   }
+
 ````
 
-Ce travail nous a permis de bien connaitre comment implémenter les relations  One To Many, One To On et  se que fait au niveau du Java grace à l’API JPA, et on a initié avec Hibernate, et bien évidement la manière de configuration d’un projet Spring pour faciliter la tache au développeur.
+
+Ce travail nous a permis de bien connaitre comment implémenter les relations  One To Many, One To On est  ce que fait au niveau du Java grace à l’API JPA, et on a initié avec Hibernate, et bien évidemment la manière de configuration d’un projet Spring pour faciliter la tâche au développeur.
