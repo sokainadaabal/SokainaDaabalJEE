@@ -22,7 +22,7 @@ Nous devons créer le projet avec les dépendances suivantes :
 
 ## Configuration de base de données 
 
-H2 est une base de données mémoire pour le test, dans le fichier ``` application.properties ``` on va configurer notre base de données de test.
+H2 est une base de données mémoire pour le test, dans le fichier ```application.properties``` on va configurer notre base de données de test.
 
 ``` properties
   spring.h2.console.enabled=true
@@ -32,17 +32,17 @@ H2 est une base de données mémoire pour le test, dans le fichier ``` applicati
 ```
 
 ## Les classes 
- Dans le packages entities ``` ma.enset.getionpatiet.entities```, nous créons les entités suivantes :
-    - ``` Patient.java ```
+ Dans le packages entities ```ma.enset.getionpatiet.entities```, nous créons les entités suivantes :
+ - ```Patient.java```
     
 ## Les répositories 
  
- Dans le packages reporistories ``` ma.enset.getionpatiet.repositories```, nous créons les reporistories  suivantes :
-    - ``` PatientRepository.java ```
+ Dans le packages reporistories ```ma.enset.getionpatiet.repositories```, nous créons les reporistories  suivantes :
+- ```PatientRepository.java```
     
 ## Test 
 
-Pour effectuer le test, nous avons créer des données dans la classe ```GetionPatientApplication.java ```  qui contient le code suivant :
+Pour effectuer le test, nous avons créer des données dans la classe ```GetionPatientApplication.java```  qui contient le code suivant :
 
 ``` java 
 
