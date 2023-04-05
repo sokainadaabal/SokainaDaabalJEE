@@ -1,6 +1,7 @@
 # Spring Boot - ORM avec Spring Data JPA | Gestion des patients
 
-Dans cette partie on va traiter le Mapping Objet Relationnel (ORM), étant donné comme faire une relation et correspondance entre les objets d’une application et les données stockées dans une table dans une BDDR, cette opération à travers le JDBC.
+Dans cette partie on va traiter le mapping objet relationnel (ORM), étant donné comme faire une relation et correspondance entre les objets d’une application et les données stockées dans une table dans une BDDR, cette opération à travers le JDBC.
+
 - ``` JDBC ``` : Java DataBase Connectivity qui permet à une application Java de communiquer avec n’importe quel SGBDR. Egalement nous allons voir l’utilité d’utilisation des frameworks lors du développement :
   - Le gain du temps
   - La portabilité d’application avec n’importe quel SGBD
@@ -12,7 +13,7 @@ Dans cette partie on va traiter le Mapping Objet Relationnel (ORM), étant donn�
 
 ## Les dépandances  :
 
-Nous devons créer le projet avec les dépandances suivantes :
+Nous devons créer le projet avec les dépendances suivantes :
  
  - Spring web
  - Spring Data JPA
@@ -23,7 +24,7 @@ Nous devons créer le projet avec les dépandances suivantes :
 
 H2 est une base de données mémoire pour le test, dans le fichier ``` application.properties ``` on va configurer notre base de données de test.
 
-```
+``` properties
   spring.h2.console.enabled=true
   spring.datasource.url=jdbc:h2:mem:patients_db
   server.port=8080
@@ -31,17 +32,17 @@ H2 est une base de données mémoire pour le test, dans le fichier ``` applicati
 ```
 
 ## Les classes 
- Dans le packages entities ``` ma.enset.getionpatiet.entities```, nous créons nos entités suivantes :
+ Dans le packages entities ``` ma.enset.getionpatiet.entities```, nous créons les entités suivantes :
     - ``` Patient.java ```
     
-## les répositories 
+## Les répositories 
  
  Dans le packages reporistories ``` ma.enset.getionpatiet.repositories```, nous créons les reporistories  suivantes :
     - ``` PatientRepository.java ```
     
-## test 
+## Test 
 
-pour effectuer le test, nous avons creer des donnees dans la classe ```GetionPatientApplication.java ```  qui contient le code suivant :
+Pour effectuer le test, nous avons créer des données dans la classe ```GetionPatientApplication.java ```  qui contient le code suivant :
 
 ``` java 
 
@@ -130,9 +131,9 @@ public class GetionPatientApplication implements CommandLineRunner {
 }
 
 ```
- aprés avoir éxécuter le code, accéder à ce lien ``` http://localhost:8080/h2-console ``` est vérifier si les données existe dans la base de données H2
+ Aprés avoir éxécuter le code, accéder à ce lien ``` http://localhost:8080/h2-console ``` est vérifier si les données existe dans la base de données H2.
  
- ## changer Base de données à MySQL
+ ## Changer Base de données à MySQL
  
  On va ajouter ces parametres au fichier ``` application.properties ```.
  
@@ -146,7 +147,7 @@ spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MariaDBDialect
 spring.jpa.show-sql=true
 ```
 
-et dans le fichier ``` pom.xml ``` ajouter cette dépandance :
+et dans le fichier ``` pom.xml ``` rajouter cette dépandance :
 
 ```` xml
   <dependency>
@@ -156,9 +157,9 @@ et dans le fichier ``` pom.xml ``` ajouter cette dépandance :
  </dependency>
 ````
 
-## test 
-Pour tester si migration de h2 vers MySQL bien passe . vérifier si les données sont insérer dans la base de données avec succés.
+## Test 
+Pour tester si migration de h2 vers MySQL bien passe . Vérifier si les données sont insérer dans la base de données avec succés.
 
 
 
-Ce travail nous a permis de bien connaitre comment le Mapping Objet Relationnel se fait au niveau du Java grace à l’API JPA, et on a initié avec Hibernate, et bien évidement la manière de configuration d’un projet Spring pour faciliter la tache au développeur.
+Ce travail nous a permis de bien connaitre comment le mapping objet relationnel se fait au niveau du Java grace à l’API JPA, et on a initié avec Hibernate, et bien évidemment la manière de configuration d’un projet Spring pour faciliter la tâche au développeur.
