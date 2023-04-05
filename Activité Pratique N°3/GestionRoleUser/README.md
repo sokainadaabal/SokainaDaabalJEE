@@ -1,9 +1,10 @@
 # Use case JPA, Hibernate Spring Data, Many To Many | Users-Roles
 
-Dans cette partie on va traiter les relations Many To Many  avec l'utilisation de JPA , Hibernate et spring web pour implémenter un syéteme de gestion hopital. ce projet va initialiser par H2 vers la fin nous merger vers MySQL.
+Dans cette partie, nous aborderons les relations Many To Many avec l'utilisation de JPA, Hibernate et Spring web pour mettre en place un système de gestion des utilisateurs. Ce projet sera initié par H2 vers la fin, nous fusionnons avec MySql.
 
 ## Les dépandances 
-Nous devons créer le projet avec les dépandances suivantes :
+
+Nous devons construire le projet en utilisant les dépendances suivantes :
 
   - Spring web
   - Spring Data JPA
@@ -16,9 +17,9 @@ Nous devons créer le projet avec les dépandances suivantes :
 
 ## Configuration de base de données
 
-H2 est une base de données mémoire pour le test, dans le fichier application.properties on va configurer notre base de données de test.
+H2 est une base de données mémoire pour le test, dans le fichier application properties. Puis nous configurerons notre base de test.
 
-```
+``` properties
 spring.h2.console.enabled=true
 spring.datasource.url=jdbc:h2:mem:users_db
 server.port=8080
@@ -28,7 +29,7 @@ spring.datasource.password=
 
 ## Les entités
 
-Dans le packages entities ```ma.enset.gestionroleuser.entities```, nous créons nos entités suivantes :
+Dans le packages entities ```ma.enset.gestionroleuser.entities```, nous créons les entités suivantes :
 
 - ```Role.java```
 - ```User.java```
@@ -55,7 +56,7 @@ Dans le package web ```ma.enset.gestionroleuser.web```, nous créons les control
 
 ## Test 
 
-Pour effectuer le test, nous avons creer des donnees dans la classe GestionRoleUserApplication.java qui contient le code suivant :
+Pour procéder au test, on crée des données dans la classe GestionRoleUserApplication.java qui contient le code suivant :
 
 ``` java
 @SpringBootApplication
@@ -118,10 +119,10 @@ public class GestionRoleUserApplication  {
 }
 ```
 
-Aprés avoir éxécuter le code, accéder à ce lien http://localhost:8080/h2-console est vérifier si les données existe dans la base de données H2.
+Une fois le code lancé, l'accès à ce lien http://localhost:8080/h2-console est vérifié si les données existent dans la base de données H2.
 
 ## Changer Base de données à Mysql
-On va ajouter ces parametres au fichier application.properties.
+Ces paramètres seront ajoutés dans le fichier application.properties.
 
 ``` properties
 server.port=8080
@@ -132,7 +133,7 @@ spring.jpa.hibernate.ddl-auto=update
 spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MariaDBDialect
 spring.jpa.show-sql=true
 ```
-et dans le fichier pom.xml ajouter cette dépandance :
+et dans le fichier pom.xml rajouter cette dépendance :
 
 ``` xml
    <dependency>
@@ -144,9 +145,9 @@ et dans le fichier pom.xml ajouter cette dépandance :
 
 ## Test
 
-Pour tester si migration de h2 vers MySQL bien passe . vérifier si les données sont insérer dans la base de données avec succés.
+Vérifier si la migration de h2 à MySQL se déroule correctement. vérifier que les données sont insérées correctement dans la base de données.
 
-On peut acceder à un URL localhost:8080//users/{username} sachant que username est un paramétre, grace à le code suivant dans le classe ```UserController.java```
+Une URL hôte locale peut être consultée ```localhost:8080//users/{username}``` sachant que username est un paramètre, à cause du code suivant dans la classe ```UserController.java```.
 
 ``` java
 @RestController
@@ -161,4 +162,4 @@ public class UserController {
     }
 }
 ```
-Ce travail nous a permis de bien connaitre comment implémenter les relations Many To Many se que fait au niveau du Java grace à l’API JPA, et on a initié avec Hibernate, et bien évidement la manière de configuration d’un projet Spring pour faciliter la tache au développeur.
+Ce travail nous a permis de bien connaitre comment implémenter les relations Many To Many ce que fait au niveau du Java grace à l’API JPA, et on a initié avec Hibernate, et bien évidemment la manière de configuration d’un projet Spring pour faciliter la tâche au développeur.
