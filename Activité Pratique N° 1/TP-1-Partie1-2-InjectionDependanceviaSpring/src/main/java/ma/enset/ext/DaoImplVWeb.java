@@ -8,7 +8,6 @@ public class DaoImplVWeb implements IDao {
     @Override
     public double getdate() {
         System.out.println("Version web Service");
-
         return 90;
     }
 }

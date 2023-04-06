@@ -10,9 +10,6 @@ public class MetierImpl implements Imetier {
     @Autowired
     @Qualifier("dao2")
     private IDao dao=null; //coublage faible
-
-
-
     @Override
     public double calcul() {
         double tmp=dao.getdate();

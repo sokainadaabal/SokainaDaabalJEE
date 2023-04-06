@@ -14,8 +14,5 @@ public class Presentation {
         metier.setDao(dao);
         System.out.println("Résultat :"+metier.calcul());
 
-
-
-
     }
 }

@@ -13,6 +13,5 @@ public class PresSpringAnnotation {
         System.out.println(imetier.calcul());
         IDao iDao = (IDao) context.getBean("dao");
         System.out.println(iDao.getdate());
-
     }
 }
