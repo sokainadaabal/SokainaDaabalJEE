@@ -223,6 +223,7 @@ Dans «External librairies» on a téléchargé 3 jars :
 2. Spring context
 3. Spring beans
 Ces jars vont être utilisés par Spring.
+On utilisant Spring pour injecter les dépendances automatiquement dans le fichier ```pom.xml```: 
 ``` xml
 <dependencies>
         <dependency>
@@ -248,8 +249,9 @@ Ces jars vont être utilisés par Spring.
         </dependency>
     </dependencies>
 ```
-On utilisant Spring pour injecter les dépendances automatiquement : 
+ 
  ### XML
+ ``` java
  public class PresentationSpringXML {
     public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
@@ -259,6 +261,7 @@ On utilisant Spring pour injecter les dépendances automatiquement :
         System.out.println(iDao.getdate());
     }
 }
+```
 La structure de fichier ```applicationContext.xml```
 Le fichier xml de configuration de spring, dans la balise « beans » on déclare les instances qu’on a besoin avec ‘id’ est le nom de chaque instance, et ‘class’ le nom de la classe, et pour injecter la dépendance il y a la balise « property » avec un ‘name’ nom de l’objet et ‘ref’ la référence vers quelle instance :
 ``` xml
@@ -274,7 +277,7 @@ Le fichier xml de configuration de spring, dans la balise « beans » on déclar
 </beans>
 ```
 ### Annotation
-
+``` java
 public class PresSpringAnnotation {
     public static void main(String[] args) {
         ApplicationContext context = new AnnotationConfigApplicationContext("ma.enset.dao","ma.enset.metier","ma.enset.ext");
@@ -284,7 +287,7 @@ public class PresSpringAnnotation {
         System.out.println(iDao.getdate());
     }
 }
-
+```
 ## Maven 
 Maven : est un outil n’est pas d’un framework, qui permit l’automatisation des processus de développement d’un projet java, il utilise un paradigme connu sous le nom de POM (Project Object Model).
 Principe : à chaque fois on ajoute une dépendance au fichier xml ‘pom.xml’ il va  chercher dans le ‘repository local’ s’il en trouve il va les utiliser, sinon il va se connecter à l’internet et il va télécharger les dépendances déclarées.
