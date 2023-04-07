@@ -67,6 +67,13 @@ La programmation orientée aspect (AOP) complète la programmation orientée obj
 Injection des dépandances présent en deux types :
  - Couplage fort : Les classes dépendent des autres classes, il est difficile de faire des modification car chaque fois on va modifier au code source.
  - Couplage faible : Les classes dépendent des interfaces et pas des autres classe, ce couplage facilite l'attribution d'une modification.
+ 
+ ## Spring IOC
+ Préférable de faire la laison des composants du programme on utilisant un framework ce pemert de changer les composants ou le comportement facilment.
+ Spring IOC consite sur lire un  fichier XML qui déclare quelle sont les différnetes classes à instancier et d'assurer les dépendances entre les différentes instances, et pour faire une nouvelle implémentation dans l'application on déclare dans le fichier xml de spring.
+ Il existe deux méthode :
+ - ```XML``` :  Spring va lire le fichier xml de configuration spring puis il va s’occuper des injections des dépendances.
+ -```Annotation``` : ajouter des annotations aux classes pour déclarer au Spring qu’il doit les instancier au démarrage de l’application, ainsi qu’auprés des objets qu’on doit attribués des dépendances aux autres instances des classes qui sont déjà déclarées.
 
 ## Architecture de probléme
 ## La couche DAO 
@@ -210,6 +217,37 @@ ma.enset.ext.MetierImplVWeb
 ```
 
 ## FrameWork Spring 
+### Les dépandances ```pom.xml```
+Dans «External librairies» on a téléchargé 3 jars :
+1. Spring core
+2. Spring context
+3. Spring beans
+Ces jars vont être utilisés par Spring.
+``` xml
+<dependencies>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>5.3.20</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>5.3.16</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
+            <version>5.3.18</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.2</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+```
 On utilisant Spring pour injecter les dépendances automatiquement : 
  ### XML
  public class PresentationSpringXML {
@@ -222,7 +260,7 @@ On utilisant Spring pour injecter les dépendances automatiquement :
     }
 }
 La structure de fichier ```applicationContext.xml```
-
+Le fichier xml de configuration de spring, dans la balise « beans » on déclare les instances qu’on a besoin avec ‘id’ est le nom de chaque instance, et ‘class’ le nom de la classe, et pour injecter la dépendance il y a la balise « property » avec un ‘name’ nom de l’objet et ‘ref’ la référence vers quelle instance :
 ``` xml
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
@@ -246,3 +284,16 @@ public class PresSpringAnnotation {
         System.out.println(iDao.getdate());
     }
 }
+
+## Maven 
+Maven : est un outil n’est pas d’un framework, qui permit l’automatisation des processus de développement d’un projet java, il utilise un paradigme connu sous le nom de POM (Project Object Model).
+Principe : à chaque fois on ajoute une dépendance au fichier xml ‘pom.xml’ il va  chercher dans le ‘repository local’ s’il en trouve il va les utiliser, sinon il va se connecter à l’internet et il va télécharger les dépendances déclarées.
+### Les commandes de Maven
+- ```mvn compile``` ->  compile le code source du projet.
+- ```mvn test``` ->  parcourir le projet et à chaque fois il trouve un test unitaire il va l’exécuter, puis il montre qui sont les tests réussit et qui ne sont pas.
+- ```mvn package``` ->  exécute la commande ```mvn compile``` et ```mvn test``` puis archive le projet maven dans archive (.jar / .war).
+- ```mvn install``` ->  exécute la commande ```mvn compile``` et ```mvn test``` puis elle installe le projet dans le repository local pour l’utiliser au cas de besoin.
+- ```mvn deploy``` ->  déployer un projet vers un serveur.
+- ```mvn site``` ->  générer un site de documentation.
+
+Dans cette partie, nous avons étudier l'injection des dépendance et l'inversion de controle avec instation dynamique et statique, Sprig XML et annotation et finalement avec le framework Spring (XML et Annotation).
