@@ -3,6 +3,9 @@
 Dans cette partie on va initier l'inversion de contrôle et l'injection des dépendances, par la séparation des codes métier aux codes techniques, ainsi on va faire l'injection des dépandances par le couplage faible et par la dépendances des classes avec des interfaces.
 
 ## Architecture d'application 
+![image](https://user-images.githubusercontent.com/48890714/230694406-2793f4a6-fe1d-458f-b922-4b6b8b41fadb.png)
+
+## Notion de cours 
 
 Il existe deux type d'architectures des applications : 
 
