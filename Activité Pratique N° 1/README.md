@@ -188,7 +188,7 @@ public class Presentation2 {
 
 ## Le dossier ext 
 Ce dossier contient la partie d'extension de l'application.
-à la maintenace on a respecté la régle d'or ```l’application doit être fermée à la modification et ouverte à l’extension``` et on a ajouté un autre dossier pour déclarer des nouvelles implémentations de l'inteface IDao.
+à la maintenace on a respecté la régle d'or ```l’application doit être fermée à la modification et ouverte à l’extension``` et on a ajouté un autre dossier pour déclarer des nouvelles implémentations de l'interface IDao.
 ``` java
 public class DaoImplVWeb implements IDao {
     @Override
@@ -215,7 +215,7 @@ public class MetierImplVWeb implements Imetier {
 ```
 ## Fichier config.txt
 Ce fichier contient la configuration pour l'injection des dépendances dynamiquement.
-il contient les noms des différentes implémentatios déja dclarés qu'on va l'utiliser pour l'injection des dépandances d'une façon dynamique sans passer par l'instanciation des objets en utilisant mot cle ```new```.
+il contient les noms des différentes implémentatios déja déclarés qu'on va l'utiliser pour l'injection des dépandances d'une façon dynamique sans passer par l'instanciation des objets en utilisant mot cle ```new```.
 
 ``` txt 
 ma.enset.ext.DaoImplVWeb
@@ -296,7 +296,7 @@ public class PresSpringAnnotation {
 ```
 ## Maven 
 Maven : est un outil n’est pas d’un framework, qui permit l’automatisation des processus de développement d’un projet java, il utilise un paradigme connu sous le nom de POM (Project Object Model).
-Principe : à chaque fois on ajoute une dépendance au fichier xml ‘pom.xml’ il va  chercher dans le ‘repository local’ s’il en trouve il va les utiliser, sinon il va se connecter à l’internet et il va télécharger les dépendances déclarées.
+Principe : à chaque fois on ajoute une dépendance au fichier xml ```pom.xml```, il va  chercher dans le ```repository local``` s’il en trouve il va les utiliser, sinon il va se connecter à l’internet et il va télécharger les dépendances déclarées.
 ### Les commandes de Maven
 - ```mvn compile``` ->  compile le code source du projet.
 - ```mvn test``` ->  parcourir le projet et à chaque fois il trouve un test unitaire il va l’exécuter, puis il montre qui sont les tests réussit et qui ne sont pas.
@@ -305,4 +305,4 @@ Principe : à chaque fois on ajoute une dépendance au fichier xml ‘pom.xml’
 - ```mvn deploy``` ->  déployer un projet vers un serveur.
 - ```mvn site``` ->  générer un site de documentation.
 
-Dans cette partie, nous avons étudier l'injection des dépendance et l'inversion de controle avec instation dynamique et statique, Sprig XML et annotation et finalement avec le framework Spring (XML et Annotation).
+Dans cette partie, nous avons étudier l'injection des dépendance et l'inversion de contrôle avec instation dynamique et statique, Sprig XML et annotation et finalement avec le framework Spring (XML et Annotation).
