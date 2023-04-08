@@ -157,7 +157,7 @@ public class Presentation {
 ### Instatnciation Dynamique
 Si en veux réspecter la régle ```l’application doit être fermée à la modification et ouverte à l’extension```, avec la métode statique dans le cas d'une nouvelle extension nous obligons à modifer le code. par contre avec la méthode dynamiqye ne faisant seulement l'injection des dépendances sans changement de code. un simple modification au niveau de fichier ```config.txt```
 
-```
+``` java
 public class Presentation2 {
     // les exception a connaitre FileNotFoundException,ClassNotFoundException,InstantiationException,IllegalAccessException,ClassCastException
 
