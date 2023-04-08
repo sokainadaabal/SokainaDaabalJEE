@@ -51,10 +51,12 @@ Il existe deux type d'architectures des applications :
 Chaque projet informatique à deux types des exigences :
  - ```Exigences Fonctionnelle``` sont les besoins fonctionnelles , les attentes du utilisateurs finale ou bien les beoins métiers de l'entreprise.
  - ```Exigences Techniques``` sont les besoins techniques quand peut résumer dans les points suivants :
-    - La performance : ce que concerne le temps de réponse de l'application, le problème de montée en charge, qu'est peut-être résolue par la scalabilité, cette dérnière peut prendre deux formes.
+    - La performance : ce que concerne le temps de réponse de l'application, le problème de montée en charge, qu'est peut-être résolue par la scalabilité, cette dérnière peut prendre deux formes:
         - Horizontale : se caractérise par l’équilibrage de charge et la tolérance aux pannes, cette scalabilité conciste sur le démarrage de l’application en  plusieurs instances dans différentes machines pour palier au problème de montée en charge, avec un serveur Load Balencer pour l’équilibrage de charge des requete reçu de chez les clients.
         - Verticale : c'est la technique qui permet d'augmenter les resources de la machine ou est exécuté une application, par resources on entend par là, la RAM, le disque dure, le processeur/CPU etc. l'application va créer un thread pour chaque requete d'un client.
-     ![image](https://user-images.githubusercontent.com/48890714/230366076-441c472a-7ff6-40f6-9a5e-6a4e699fd221.png)
+    
+      ![image](https://user-images.githubusercontent.com/48890714/230366076-441c472a-7ff6-40f6-9a5e-6a4e699fd221.png)
+    
     - La maintenance : l'application doit être évolutive dans lle temps, mais en prenant en compte la régle ```une application doit être fermée à la modification et ouverte à l’extension``` parce que les modifications peuvent générer les problèmes de régression.
     - La sécurité : les failles de sécurité sont l'un de problème critique au développement informatque, il faut donner plus d'un attention à la persistance des données et la gestion des transactions.
     - Les versions : web / mobile / desktop.
@@ -63,7 +65,8 @@ Chaque projet informatique à deux types des exigences :
 L'inversion de contrôle est un principe consite à séparer de tous ce qui métier à tous ce qui est technique. les développeurs s'occupe seulement la partie code  et le framework va occuper la partie technique. on basant sur l'architecture AOP(Aspect Oriented Programming).
 
 ```
-La programmation orientée aspect (AOP) complète la programmation orientée objet (POO) en offrant une autre façon de penser la structure du programme. L'unité clé de la modularité en POO est la classe, alors qu'en AOP l'unité de modularité est l' aspect . Les aspects permettent la modularisation de préoccupations telles que la gestion des transactions qui couvrent plusieurs types et objets. (Ces préoccupations sont souvent qualifiées de préoccupations transversales dans la littérature AOP.)
+La programmation orientée aspect (AOP) complète la programmation orientée objet (POO) en offrant une autre façon de penser la structure du programme. L'unité clé de la modularité en POO est la classe, alors qu'en AOP l'unité de modularité est l' aspect . 
+Les aspects permettent la modularisation de préoccupations telles que la gestion des transactions qui couvrent plusieurs types et objets. (Ces préoccupations sont souvent qualifiées de préoccupations transversales dans la littérature AOP.)
 ```
 ## Injection des dépandances
 
@@ -76,7 +79,7 @@ Injection des dépandances présent en deux types :
  Spring IOC consite sur lire un  fichier XML qui déclare quelle sont les différnetes classes à instancier et d'assurer les dépendances entre les différentes instances, et pour faire une nouvelle implémentation dans l'application on déclare dans le fichier xml de spring.
  Il existe deux méthode :
  - ```XML``` :  Spring va lire le fichier xml de configuration spring puis il va s’occuper des injections des dépendances.
- -```Annotation``` : ajouter des annotations aux classes pour déclarer au Spring qu’il doit les instancier au démarrage de l’application, ainsi qu’auprés des objets qu’on doit attribués des dépendances aux autres instances des classes qui sont déjà déclarées.
+ - ```Annotation``` : ajouter des annotations aux classes pour déclarer au Spring qu’il doit les instancier au démarrage de l’application, ainsi qu’auprés des objets qu’on doit attribués des dépendances aux autres instances des classes qui sont déjà déclarées.
 
 ## Architecture de probléme
 ## La couche DAO 
