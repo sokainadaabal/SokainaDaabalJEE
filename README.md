@@ -9,3 +9,6 @@
 ## Activité Pratique N°4 : Spring MVC JPA Hibernate Spring Data Thymeleaf Spring Security
 ## Activité Pratique N°5 : Web services SOAP 
    - [Création d'un service web SOAP et client en java et php](https://github.com/sokainadaabal/SokainaDaabalJEE/tree/main/Activit%C3%A9%20Pratique%20N%C2%B05)
+## Activité Pratique N° 6 : Mise en oeuvre d'un micro-service
+   
+## Framework Injection des dépendance
