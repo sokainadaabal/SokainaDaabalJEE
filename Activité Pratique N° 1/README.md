@@ -9,7 +9,7 @@ Dans cette partie on va initier l'inversion de contrôle et l'injection des dép
 
 Il existe deux type d'architectures des applications : 
 
-- ```Monotolithique``` : c'est à dire une seule architecture de l'application, l'application est développée dans un seuke bloc autre mot à dire c'est un modèle traditionnel de programme de développement, conçu comme une unité unifiée autonome et indépendante d'autres apps.
+- ```Monotolithique``` : c'est à dire une seule architecture de l'application et meme technologie, l'application est développée dans un seul bloc autre mot à dire c'est un modèle traditionnel de programme de développement, conçu comme une unité unifiée autonome et indépendante d'autres apps et déployée dans un serveur d'application. Développer une seule application qui centralise toutes les fonctionnalités d'un grand probléme donnée.
  
    Quelques avantages d'une architecture monolithique:
     - Déploiement facile.
@@ -19,6 +19,13 @@ Il existe deux type d'architectures des applications :
     - Débogage facile
  
    Inconvénients d'une architecture monolithique :
+    - Elles centralisent tous les besoins fonctionnels.
+    - Elles sont réalisées dans une seule technologie.
+    - Chaque modification nécessite de tester les régressions (tester si les autres fonctionnalités ne sont pas  impactées négativement car chaque module dépend de l'autre), redéployer toute l'application, difficile à faire évoluer au niveau fonctionnel.
+    - Le client attend beaucoup de temps pour commencer à voifr les premières versions.
+    - Mise en production prend beaucoup de temps.
+    - Difficile à Tester.
+    - Performances ( Scalabilités ).
     - Vitesse de développement plus lente.
     - Évolutivité.
     - Fiabilité.
