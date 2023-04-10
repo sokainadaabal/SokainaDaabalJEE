@@ -16,7 +16,7 @@ Il existe deux type d'architectures des applications :
     - Développement : seul base de code  à dévlopper.
     - Performances. 
     - Tests simplifiés.
-    - Débogage facile
+    - Débogage facile.
  
    Inconvénients d'une architecture monolithique :
     - Elles centralisent tous les besoins fonctionnels.
@@ -25,14 +25,15 @@ Il existe deux type d'architectures des applications :
     - Le client attend beaucoup de temps pour commencer à voifr les premières versions.
     - Mise en production prend beaucoup de temps.
     - Difficile à Tester.
-    - Performances ( Scalabilités ).
+    - Performances ( Scalabilité, lorsque il ya probléme de monté en charge solution Scalabilité Horizontale mais c'est trop ).
     - Vitesse de développement plus lente.
     - Évolutivité.
     - Fiabilité.
     - Obstacle à l'adoption de la technologie.
     - Manque de flexibilité.
     - Déploiement.
-- ```Micro-Services```: est une méthode architecturale qui repose sur une série de services déployables indépendamment. Ces services ont leur propre logique métier et leur propre base de données avec un objectif précis. La mise à jour, les tests, le déploiement et la mise à l'échelle ont lieu dans chaque service.
+    
+- ```Micro-Services```: est une méthode architecturale qui repose sur une série de services déployables indépendamment. Ces services ont leur propre logique métier et leur propre base de données avec un objectif précis. La mise à jour, les tests, le déploiement et la mise à l'échelle ont lieu dans chaque service. chaque micro service est résponsable  d'une fonctionnalité et tourne dansun processus séparé. 
   
     Les avantages des microservices :
     - Agilité.
@@ -43,6 +44,58 @@ Il existe deux type d'architectures des applications :
     - Flexibilité technologique.
     - Fiabilité élevée.
     - Équipes satisfaites.
+    - Choix de téchnologie.
+    - Livraison continue.
+    - Facilité des tests et du déploiement.
+    - S'apprete bien à au processus du génie logiciel. TDD ( Test Driven Développement ) et les métodes agiles.
+       ``` java 
+         // developpement classique 
+          public class Calcul()
+          {
+            public doubke somme(double a, double b)
+            {
+               return a+b;
+            }
+          }
+          
+          // Class de test
+          public class CalculTest()
+          {
+            @Test 
+            public void testSomme(){
+              double a=5;
+              double b=8;
+              double exp=a+b;
+              Calcul c= new Calcul();
+              double rest= c.somme(a,b);
+              assertEqual(exp,rest);
+            }
+          }
+       ```
+        ``` java 
+         // developpement  basé sur TDD
+          // Class de test
+          public class TestCalcul()
+          {
+            @Test 
+            public void testSomme(){
+              double a=5;
+              double b=8;
+              double exp=a+b;
+              Calcul c= new Calcul(); // va demande de crée la classe Calcul
+              double rest= c.somme(a,b); // va demande de crée la méthode  somme
+              assertEqual(exp,rest);
+            }
+          }
+          
+          public class Calcul()
+          {
+            public doubke somme(double a, double b)
+            {
+               return 0; // votre travaill est seulement de coder la fonction.
+            }
+          }
+       ```
 
    Inconvénients des microservices :
     - Développement tentaculaire : plus de complexité.
@@ -51,8 +104,13 @@ Il existe deux type d'architectures des applications :
     - Défis de débogage.
     - Manque de standardisation.
     - Manque de responsabilité claire 
+    
+    on besoin vers la fin de développer un ```Gate way``` qui permet de recevoir les requetes et équilibre la charge (loader balancer),  nous avons besoin aussi besoin de ```DiscoveryService``` stocke les services et apartir de nom permet de précisé qu'il service et envoyer leur adress a gate way,nous avons besoins ```Config Service``` dans le quelle on va crée un repository qui contient application.properties dans la quelle on va met toute les properties commun entre les services.
+
 ![image](https://user-images.githubusercontent.com/48890714/230246863-4872eb6e-7dc3-4a30-a5d2-aea6e1be4d8d.png)
 
+    
+    
 ## Exigences d'un projet informatique
 
 Chaque projet informatique à deux types des exigences :
