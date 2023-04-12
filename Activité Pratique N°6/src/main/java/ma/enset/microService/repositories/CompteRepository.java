@@ -1,5 +1,6 @@
 package ma.enset.microService.repositories;
 
+import ma.enset.microService.entities.Client;
 import ma.enset.microService.entities.Compte;
 import ma.enset.microService.enums.AccountType;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -15,4 +16,7 @@ import java.util.List;
 public interface CompteRepository extends JpaRepository<Compte,String> {
     @RestResource(path = "/byType")
     List<Compte> findByType(@Param("t") AccountType type); // spring rest va implementer la methode.
+    @RestResource(path = "/byClient")
+    List<Compte> findByClient(@Param("c") Client client); // spring rest va implementer la methode.
+
 }

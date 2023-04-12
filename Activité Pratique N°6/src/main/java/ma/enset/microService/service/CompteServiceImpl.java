@@ -26,4 +26,12 @@ public class CompteServiceImpl implements CompteService {
         Compte compte1=compteRepository.save(compte);
         return compteMapper.getCompteResponseDTO(compte1);
     }
+
+    @Override
+    public CompteResponseDTO updateCompte(String id, CompteRequestDTO compteRequestDTO) {
+        Compte compteFind=compteRepository.findById(id).orElseThrow();
+        Compte compte = new Compte();
+        if(compteFind!=null) compte=compteMapper.getCompteById(compteFind,compteRequestDTO);
+        return compteMapper.getCompteResponseDTO(compteRepository.save(compte));
+    }
 }
