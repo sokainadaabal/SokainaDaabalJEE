@@ -1,0 +1,30 @@
+type Query{
+    ComptesListe:[Compte],
+    getCompteById(id:String):Compte,
+    clients:[Client]
+}
+type Mutation{
+    addCompte(compte:CompteDTO):Compte
+    updateCompte(id:String,compte:CompteDTO):Compte
+    deleteCompte(id:String):Boolean
+}
+type Client{
+    id:Float,
+    nom:String,
+    compte:[Compte]
+}
+type Compte {
+    id: String,
+    creatAt: Float,
+    balance: Float,
+    currency: String,
+    type:String,
+    client:Client
+}
+
+input  CompteDTO
+{
+    balance: Float
+    currency: String
+    type:String
+}
