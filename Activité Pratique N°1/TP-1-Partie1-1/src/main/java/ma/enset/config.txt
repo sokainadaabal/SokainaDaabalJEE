@@ -1,3 +1,0 @@
-ma.enset.dao.DaoImpl
-ma.enset.metier.MetierImpl
-
