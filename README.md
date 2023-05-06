@@ -1,6 +1,6 @@
 # SokainaDaabalJEE
 ## Activité Pratique N°1 : Inversion de contrôle et Injection des dépendances 
-  -  [Inversion de contrôle et Injection des dépendances ](https://github.com/sokainadaabal/SokainaDaabalJEE/tree/main/Activit%C3%A9%20Pratique%20N%C2%B0%201)
+  -  [Inversion de contrôle et Injection des dépendances ](https://github.com/sokainadaabal/SokainaDaabalJEE/tree/main/Activit%C3%A9%20Pratique%20N%C2%B01)
 ## Activité Pratique N°2 : Bases des systèmes distribués - Programmation Résaux 
 ## Activité Pratique N°3 : JPA Hibernate Spring Data
   - [Spring Boot - ORM avec Spring Data JPA | Gestion des patients](https://github.com/sokainadaabal/SokainaDaabalJEE/tree/main/Activit%C3%A9%20Pratique%20N%C2%B03/getion-patient)
