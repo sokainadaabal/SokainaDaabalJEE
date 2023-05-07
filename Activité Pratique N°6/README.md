@@ -47,7 +47,7 @@ public class Compte {
     private  Client client;
 }
 ```
-Dans le packages ```ma.enset.microService.enums````, nous avons ajouter une enumeration a fin de determiner le type de compte.
+Dans le packages ```ma.enset.microService.enums```, nous avons ajouter une enumeration a fin de determiner le type de compte.
 * ``` AccountType.java ```
 ``` java
 public enum AccountType {
@@ -79,7 +79,7 @@ Remarque :
  * ```@RestResource(path = " ")``` : est une annotation fournie par Spring Data qui permet de personnaliser les endPoints RESTful générés pour un référentiel (repository) spécifique. cette notation utiliser pour les methodes. comme l'endPoint RESTful suivant:  ```http://localhost:8080/comptes/search/byType?t=CURRENT_ACCOUNT```.
 
 ## Les services
-Dans le package ```ma.enset.microService.service```, nous ajoutons l'interface ``` CompteService ``` et leur calsse d'implementation.
+Dans le package ```ma.enset.microService.service```, nous ajoutons l'interface ```CompteService``` et leur calsse d'implementation.
 * ``` CompteService.java ```
 ``` java 
 public interface CompteService {
@@ -88,7 +88,7 @@ public interface CompteService {
      CompteResponseDTO updateCompte(String id, CompteRequestDTO compteRequestDTO);
 }
 ```
-* ```CompteServiceImpl.java ```
+* ```CompteServiceImpl.java```
 ```java
 
 @Service
@@ -195,6 +195,7 @@ public class CompteMapper
 ## Tester la couche DAO 
 
 Pour tester notre application ,  nous ajoutons ce code dans la classe ```MicroServiceApplication.java```.
+
 ``` java
 @SpringBootApplication
 
@@ -246,8 +247,12 @@ public class MicroServiceApplication {
 ![image](https://user-images.githubusercontent.com/48890714/236681656-4dffb3fa-1567-4902-91fd-b87db42038d9.png)
 
 ## Créer le Web service Restfull qui permet de gérer des comptes
-Pour creer le web service Restfull qui permet de  gérer des comptes, nous avons besoin seulement d'ajouter une annotation RepositoryRestResource dans l'interface ```CompteRepository.java``. 
+
+Pour creer le web service Restfull qui permet de  gérer des comptes, nous avons besoin seulement d'ajouter une annotation ```RepositoryRestResource``` dans l'interface 
+```CompteRepository.java```. 
+
 Cette annotation nous permet d'utiliser Spring data Rest pour generer automatiquement les endPoints.
+
 * Exemple des endPoints Generer :
   - ```http://localhost:8080/comptes```: permet de récupérer la liste des comptes bancaires.
   
@@ -257,6 +262,7 @@ Cette annotation nous permet d'utiliser Spring data Rest pour generer automatiqu
   ![image](https://user-images.githubusercontent.com/48890714/236682927-d392517f-b194-4b93-ba1a-abb66e8735c5.png)
   
 ## RestController
+
 Dans le package ```ma.enset.microService.web```, nous avons creer un controller Rest qui permet de gérer des comptes bancaires.
 - ``` CompteRestController.java```
 ``` java
@@ -297,26 +303,242 @@ public class CompteRestController {
     }
 }
 ```
-nous avons utliser la projection ```CompteResponseDTO ``` pour la methode  save.
+Nous avons utliser la projection ```CompteResponseDTO``` pour la methode  save.
+
 ## Test EndPoints
-maintenant en test les endPoints s'il fonctioone.
+
+Maintenant en test les endPoints s'il fonctioone.
+
 - ```http://localhost:8080/api/banckCompte``` : affiche une liste des comptes bancaires.
 - ```http://localhost:8080/api/banckCompte/fe910435-f43c-4d12-8de0-b223016f81e5```: permet de recupperer le compte de l'identifiant suivant : ```fe910435-f43c-4d12-8de0-b223016f81e5```.
+
 il existe d'autre endPoints que ce soit pour supprimer, modifier ou ajouter un compte.
+
 ## Test Client comme Postman
+
 Maintenat on va tester ses endPoints on utilisons Postman.
+
 ![image](https://user-images.githubusercontent.com/48890714/236683760-7e6268bc-8105-43dd-8a86-58fb0939cece.png)
 
 ## Générer et tester le documentation Swagger de des API Rest du Web service
 
 Pour la documentation de notre Api, nous utilisons Swagger.
+
 C'est quoi Swagger ?  on peut dire que c’est un ensemble d’outils pour aider les développeurs dans la conception, le build, la documentation et la consommation d’API.
+
 Pour ouvrire l'interface graphique de Swagger, on acceder a le lien suivant : ```http://localhost:8080/swagger-ui/index.html```.
-cette interface va illustrer l'ensemble des apis de votre micro service et comment l'utliser.
+
+Cette interface va illustrer l'ensemble des apis de votre micro service et comment l'utliser.
+
 ![image](https://user-images.githubusercontent.com/48890714/236684221-a63b6d00-56f4-485d-b98d-7f4a00daea8c.png)
 
 ## Créer un Web service GraphQL pour ce micro-service
 
+GraphQL est un langage de requête pour les API et un runtime pour répondre à ces requêtes avec vos données existantes. GraphQL fournit une description complète et compréhensible des données de votre API, donne aux clients le pouvoir de demander exactement ce dont ils ont besoin et rien de plus, facilite l'évolution des API au fil du temps et active de puissants outils de développement.
+
+Pour utiliser GrapheQL dans notre projet existe des depandances  dans le fichier ``` pom.xml ```.
+``` xml 
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-graphql</artifactId>
+        </dependency>
+```
+
+Dans Le dossier Ressource, nous ajoutons un dossier grapheQL dans lequel on va creer fichier ```schema.graphqls```.  dans cette fichier on va presicer le schema GraphQL.
+- ```schema.graphqls```.
+```graphqls
+type Query{
+    ComptesListe:[Compte],
+    getCompteById(id:String):Compte,
+    clients:[Client]
+}
+type Client{
+    id:Float,
+    nom:String,
+    compte:[Compte]
+}
+type Compte {
+    id: String,
+    creatAt: Float,
+    balance: Float,
+    currency: String,
+    type:String,
+    client:Client
+}
+
+
+```
+### Query
+cette schema contient des requetes, une qui retoure une liste des comptes, autre retourne compte en specifiant l'identifiant et le dernier permet de recuperer une liste des clients.
+
+Pour tester, dans le package ```ma.enset.microService.web``` nous creons la classe suivante ```CompteGrapheQLController.java``` qui vq nous permettre de tester le schema GraphQL.
+- ```CompteGrapheQLController.java```
+``` java
+@Controller
+public class CompteGrapheQLController {
+    @Autowired
+    private CompteRepository compteRepository;
+
+    @Autowired
+    private CompteService compteService;
+
+    @Autowired
+    private ClientRepository clientRepository;
+
+    @QueryMapping
+    public List<Compte> ComptesListe(){
+           return compteRepository.findAll();
+    }
+    @QueryMapping
+    public List<Client> clients(){
+        return  clientRepository.findAll();
+    }
+}
+```
+
+ - @QueryMapping permet de liee les methodes avec les requetes GraphQL. il faut utliser les memes noms de la requete GrapheQL et de la methode.
+ - Il faut ajouter une configuration dans le fichier ```application.properties```.
+ 
+ ``` properties
+ spring.graphql.graphiql.enabled=true
+ ```
+ 
+ Pour acceder a l'interface de test de GraphQL, utliser URl suivant ```http://localhost:8080/graphiql?path=/graphql```.
+ > Remarque : toute les requetes utiliser dans GraphQl sont en post,
+
+
+Il existe deux notions important dans GraphQL :
+ - ```Query```  : nous utilisons des requêtes pour récupérer des données.
+ - ```Mutation``` : nous utilisons des mutations pour modifier les données côté serveur.
+
+> GraphQL nous permet de recupper uniquement les donnees dont on a besoin.
+
+Pour la gestion des exceptions, on cree le package ```ma.enset.microService.exceptions``` et on cree la classe ```CustomDataFetcherExceptionResolver```  qui herite de classe ```DataFetcherExceptionResolverAdapter```.
+- ```CustomDataFetcherExceptionResolver.java```
+``` java
+@Controller
+public class CustomDataFetcherExceptionResolver  extends DataFetcherExceptionResolverAdapter {
+    @Override
+    protected GraphQLError resolveToSingleError(Throwable ex, DataFetchingEnvironment env) {
+        return new GraphQLError() {
+            @Override
+            public String getMessage() {
+                return ex.getMessage();
+            }
+
+            @Override
+            public List<SourceLocation> getLocations() {
+                return null;
+            }
+
+            @Override
+            public ErrorClassification getErrorType() {
+                return null;
+            }
+        };
+    }
+}
+```
+> Si on cherche maintenant un compte n'existe pas va retourner un message ```compte n'existe pas ``` au lien de generer une execption.
+### Mutation 
+
+les mutations sont utilises pour modifier les données côté serveur.
+Dans notre application, nous avons utliser 3 mutations :
+
+- ``` addCompte ``` pour ajouter un compte bancaire.
+- ``` updateCompte ``` pour modifier un compte bancaire.
+- ``` deleteCompte ``` pour supprimer un compte bancaire.
+
+ses methodes sont ajouter dans la classe ```CompteGrapheQLController.java```:
+
+``` java
+    @MutationMapping
+    public CompteResponseDTO addCompte(@Argument CompteRequestDTO compte){
+
+        return compteService.addCompte(compte);
+    }
+
+    @MutationMapping
+    public CompteResponseDTO updateCompte(@Argument String id,@Argument CompteRequestDTO compte){
+
+        return compteService.updateCompte(id,compte);
+    }
+    @MutationMapping
+    public Boolean deleteCompte(@Argument String id){
+        compteRepository.deleteById(id);
+        return true;
+    }
+```
+
+dans le fichier ```schema.graphqls``` ajouter les mutations:
+
+``` graphqls
+type Mutation{
+    addCompte(compte:CompteDTO):Compte
+    updateCompte(id:String,compte:CompteDTO):Compte
+    deleteCompte(id:String):Boolean
+}
+input  CompteDTO
+{
+    balance: Float
+    currency: String
+    type:String
+}
+```
+ - ``` type mutation ``` permet de definir les mutations
+ - ``` input ``` permet de definir les parametres d'entrees
+ 
+## test GraphQL 
+### Query 
+on execute la requete suivante :
+``` json 
+query{
+  ComptesListe{id,balance}
+}
+```
+on obient les resultat suivant :
+``` json 
+{
+  "data": {
+    "ComptesListe": [
+      {
+        "id": "0983f32e-75a6-418e-8504-2d809ed88a39",
+        "balance": 60568913.63253504
+      },
+      {
+        "id": "1699268f-c96c-4f15-8ede-a361696c8259",
+        "balance": 13089866.692350285
+      },
+      {
+        "id": "1c71cc54-f9ac-4c12-844d-be154c92b295",
+        "balance": 49477828.37263954
+      }
+    ]
+  }
+}
+```
+### Mutation
+
+on test la mutation suivante ;
+```
+mutation{
+ addCompte(compte:{balance: 15000, currency: "DH", type: "SAVING_ACCOUNT"}) {
+    id, balance
+  }
+}
+```
+on obtient la resultat suivante :
+
+```
+{
+  "data": {
+    "addCompte": {
+      "id": "c9165d59-3d40-4828-b43c-04e5f41128c1",
+      "balance": 15000
+    }
+  }
+}
+```
 ## Conclusion
 Dans cette activite nous avons connaitre comment cree un micro service et generer une documentation Swagger et aussi nous avons location de creer un web service GraphQL pour le micro-service que nous avons deja cree.
 
