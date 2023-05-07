@@ -491,7 +491,7 @@ input  CompteDTO
 ## test GraphQL 
 ### Query 
 on execute la requete suivante :
-``` json 
+```
     query{
       ComptesListe{id,balance}
     }
@@ -520,7 +520,7 @@ on obient les resultat suivant :
 ### Mutation
 
 on test la mutation suivante ;
-``` json 
+```
 mutation{
  addCompte(compte:{balance: 15000, currency: "DH", type: "SAVING_ACCOUNT"}) {
     id, balance
