@@ -33,6 +33,7 @@ public class CompteRestController {
     public Compte getCompte(@PathVariable("id") String id){
         return compteRepository.findById(id).orElseThrow(()->new RuntimeException(String.format("Compte non trouve",id)));
     }
+    /* En utilisant la projection */
     @PostMapping("/banckCompte")
     public CompteResponseDTO save(@RequestBody CompteRequestDTO compte){
         return  compteService.addCompte(compte);

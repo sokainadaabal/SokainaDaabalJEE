@@ -31,7 +31,7 @@ public class MicroServiceApplication {
     }
 
     @Bean
-    CommandLineRunner stat()
+    CommandLineRunner start()
     {
         return args -> {
             Stream.of("Sokaina","Saad","Ahmed saad","Mohammed saad").forEach((m)->

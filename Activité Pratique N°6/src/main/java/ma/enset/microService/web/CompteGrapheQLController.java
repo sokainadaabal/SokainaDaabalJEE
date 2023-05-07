@@ -34,6 +34,13 @@ public class CompteGrapheQLController {
     public List<Compte> ComptesListe(){
            return compteRepository.findAll();
     }
+
+    /**
+     *
+     * Pour résoudre ce problème, on peut utiliser la projection CompteResponseDTO pour mapper la date de création.
+     * @param id
+     * @return
+     */
     @QueryMapping
     public Compte getCompteById(@Argument String id){
             return compteRepository.findById(id)
