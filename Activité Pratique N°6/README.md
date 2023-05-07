@@ -492,9 +492,9 @@ input  CompteDTO
 ### Query 
 on execute la requete suivante :
 ``` json 
-query{
-  ComptesListe{id,balance}
-}
+    query{
+      ComptesListe{id,balance}
+    }
 ```
 on obient les resultat suivant :
 ``` json 
@@ -520,7 +520,7 @@ on obient les resultat suivant :
 ### Mutation
 
 on test la mutation suivante ;
-```
+``` json 
 mutation{
  addCompte(compte:{balance: 15000, currency: "DH", type: "SAVING_ACCOUNT"}) {
     id, balance
@@ -529,7 +529,7 @@ mutation{
 ```
 on obtient la resultat suivante :
 
-```
+``` json 
 {
   "data": {
     "addCompte": {
