@@ -50,7 +50,6 @@ public class SecurityConfig {
                 .password(passwordEncoder.encode("1234")) // {noop} si en n'utilise pas PasswordEncoder
                 .roles("USER")
                 .build();
-
         UserDetails user2 = User.withUsername("user2")
                 .username("user2")
                 .password(passwordEncoder.encode("1994"))
@@ -104,7 +103,7 @@ public class SecurityConfig {
 
     @Bean
     SecurityFilterChain defaultSecurityFilterChain(@NotNull HttpSecurity http) throws Exception {
-        http.formLogin().loginPage("/login").permitAll(); // formulaire authentication contient csrf caché // personnaliser la page
+        http.formLogin().permitAll(); // formulaire authentication contient csrf caché // personnaliser la page
         http.authorizeRequests().requestMatchers("/").permitAll();
         http.authorizeRequests().requestMatchers("/webjars/***").permitAll();
         http.authorizeRequests().requestMatchers("/admin/**").hasAuthority("ADMIN");

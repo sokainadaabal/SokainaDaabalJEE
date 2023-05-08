@@ -23,7 +23,7 @@ public class ApplicationSpringApplication {
     public static void main(String[] args) {
         SpringApplication.run(ApplicationSpringApplication.class, args);
     }
-   // @Bean  // execute au demarrage
+    //@Bean  // execute au demarrage
     // pour faire un traitement en demarrage et va executer ce code
     CommandLineRunner commandLineRunner(){
         return args -> {
@@ -43,7 +43,7 @@ public class ApplicationSpringApplication {
         return new BCryptPasswordEncoder();
     } // algo qui permet de faire le hashage de password au lieu d'utiliser md5 crypt password
 
-    //@Bean
+    // @Bean
     CommandLineRunner saveUsers(SecurityService securityService){
 
         return args->{

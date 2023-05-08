@@ -60,8 +60,13 @@ public class PatientController {
    @PostMapping("/admin/save")
     public String save(Model model, @Valid Patient patient , BindingResult bindingResult, @RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = " ") String KeyWord){
         if(bindingResult.hasErrors()) return "formPatients";
-        patientRepository.save(patient);
-
+        Patient patient1 = new Patient();
+        patient1.setId(patient.getId());
+        patient1.setNom(patient.getNom());
+        patient1.setDateNaissance(patient.getDateNaissance());
+        patient1.setScore(patient.getScore());
+        patient1.setMalade(patient.isMalade());
+        patientRepository.save(patient1);
         return "redirect:/user/index?page="+page+"&KeyWord="+KeyWord;
    }
 
@@ -70,8 +75,8 @@ public class PatientController {
         Patient patient=patientRepository.findById(id).orElse(null);
         if (patient==null) throw  new RuntimeException("Patient introuvable");
         model.addAttribute("patient",patient);
-       model.addAttribute("keyword",KeyWord);
-       model.addAttribute("page",page);
+        model.addAttribute("keyword",KeyWord);
+        model.addAttribute("page",page);
         return "editPatients";
    }
 

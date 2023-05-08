@@ -18,7 +18,7 @@
                     <form method="post" th:action="@{/admin/save(page=${page},KeyWord=${keyword})}">
                         <div>
                             <label >ID</label>
-                            <label th:text="${patient.id}"></label>
+                            <input id="id" class="form-control" type="text" name="id" th:value="${patient.id}" readonly="readonly">
                             <span th:errors="${patient.id}" class="text-danger"></span>
                         </div>
                         <div>
