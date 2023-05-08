@@ -7,6 +7,8 @@
   - [Use case JPA, Hibernate Spring Data, One To Many, One To One | Gestion d'un hopital](https://github.com/sokainadaabal/SokainaDaabalJEE/tree/main/Activit%C3%A9%20Pratique%20N%C2%B03/GestionHopital)
   - [Use case JPA, Hibernate Spring Data, Many To Many | Users-Roles](https://github.com/sokainadaabal/SokainaDaabalJEE/tree/main/Activit%C3%A9%20Pratique%20N%C2%B03/GestionRoleUser)
 ## Activité Pratique N°4 : Spring MVC JPA Hibernate Spring Data Thymeleaf Spring Security
+  - [Partie 1 : Gestion Patient | Application Web](https://github.com/sokainadaabal/SokainaDaabalJEE/tree/main/Activit%C3%A9%20Pratique%20N%C2%B04)
+  - [Partie 2 : Spring Security - Spring Data | Securing a Web Application](https://github.com/sokainadaabal/SokainaDaabalJEE/tree/main/Activit%C3%A9%20Pratique%20N%C2%B04)
 ## Activité Pratique N°5 : Web services SOAP 
    - [Création d'un service web SOAP et client en java et php](https://github.com/sokainadaabal/SokainaDaabalJEE/tree/main/Activit%C3%A9%20Pratique%20N%C2%B05)
 ## Activité Pratique N° 6 : Mise en oeuvre d'un micro-service
