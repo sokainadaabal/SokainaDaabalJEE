@@ -69,10 +69,11 @@ Pour cree des utlisateurs de l'application on va ajouter cette fonction.
         return new InMemoryUserDetailsManager(users);
 ```
 > Explication :
-> Si le mot de pass n'est pas encode en va utliser cette instruction ```password("{noop} 123")```
->  ```PasswordEncoded``` est pour encoder le mot de passe, sera explique par la suite.
->  Pour assossier l'utilisateur a un role on va utiliser ```roles("USER")``` si l'utilisateur a un seul role. si possede plusieurs role roles("USER","ADMIN").
->  ``` User.withUsername("user1").username("user1").password(passwordEncoder.encode("1234")) .roles("USER").build() ``` on cree un utlisateur avec le nom ```user1``` et avec un mot de passe ```1234``` et le role ```user```.
+
+> - Si le mot de pass n'est pas encode en va utliser cette instruction ```password("{noop} 123")```
+> - ```PasswordEncoded``` est pour encoder le mot de passe, sera explique par la suite.
+> - Pour assossier l'utilisateur a un role on va utiliser ```roles("USER")``` si l'utilisateur a un seul role. si possede plusieurs role roles("USER","ADMIN").
+> - ``` User.withUsername("user1").username("user1").password(passwordEncoder.encode("1234")) .roles("USER").build() ``` on cree un utlisateur avec le nom ```user1``` et avec un mot de passe ```1234``` et le role ```user```.
 ## Encoder le mot de passe 
 pour encoder le mot de passe, nous avons utliser ```PasswordEncoder```.
 Dans la classe ```SecurityConfig```,on declare un objet de type ``` PasswordEncoder : 
@@ -89,8 +90,8 @@ Dans la classe ```ApplicationSpringApplication```,on ajoute la methode suivante 
     } 
 
 ```
-> cette methode permet de faire le hashage de password au lieu d'utiliser md5 crypt password.
-> pour encoder le mot de passe, nous utilisons l'instruction suivant ```passwordEncoder.encode("1234")```.
+> - cette methode permet de faire le hashage de password au lieu d'utiliser md5 crypt password.
+> - pour encoder le mot de passe, nous utilisons l'instruction suivant ```passwordEncoder.encode("1234")```.
 ## Sécurité côté Frontend :
 Pour la gestion de la securite dans les themplate, spring boot offre une depandance ``` Thymeleaf extra-springsecurity6 ``` pour definire les droit d'acces dans chaque page.
 
@@ -107,18 +108,19 @@ Pour afficher le nom d'utlisateur dans navbar, nous modifions la balise suivante
 
 ``` html
  <li class="nav-item dropdown" sec:authorize="isAuthenticated()">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <span sec:authentication="name"></span>
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" th:href="@{/logout}" >Logout</a>
-                </div>
+     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <span sec:authentication="name"></span>
+     </a>
+     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" th:href="@{/logout}" >Logout</a>
+     </div>
 </li>
 ```
-> Explication 
-> ```isAuthenticated()``` permet de verifier si l'utilisatuer est connecter.
-> ``` sec:authentication="name"``` permet d'afficher le nom d'utlisateur connecte.
-> ``` th:href="@{/logout}"``` permet de deconnecter.
+> Explication
+ 
+> - ```isAuthenticated()``` permet de verifier si l'utilisatuer est connecter.
+> - ``` sec:authentication="name"``` permet d'afficher le nom d'utlisateur connecte.
+> - ``` th:href="@{/logout}"``` permet de deconnecter.
 ### Droit d'acces
 Pour verifier les doroits d'acces du l'utilisateur connecter : 
 ``` html 
@@ -130,12 +132,12 @@ Spring boot offre plusieurs outils pour facilite le developpements d'une applica
 Pour ajouter cette fonctionnalite,il existe deux etapes a suivre :
 - Etape 1 : Ajouter la dependance dans ```pom.xml``` 
 ``` XML 
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-devtools</artifactId>
-            <scope>runtime</scope>
-            <optional>true</optional>
-        </dependency>
+ <dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-devtools</artifactId>
+    <scope>runtime</scope>
+    <optional>true</optional>
+  </dependency>
 ```
 - Etape 2 : Active cette fonctionnalite
 Pour l'active, ilfaut ajouter une ligne dans le fichier ```application.properties```
