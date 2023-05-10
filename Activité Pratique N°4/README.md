@@ -149,3 +149,10 @@ A ce stade, on peut voir les modificaations sans avoir redemarrer l'application.
 
 Dans cette video, on va voir notre application(Partie 1 | Partie 2).
 
+## Utilisateur avec Role Admin et User 
+
+https://github.com/sokainadaabal/SokainaDaabalJEE/assets/48890714/c6412126-a3c5-4bdb-a540-83d3601c0567
+
+## Utilisateur avec Role User 
+
+[Role_User.webm](https://github.com/sokainadaabal/SokainaDaabalJEE/assets/48890714/717c8d6b-8a2e-49df-a84b-29d961b643a0)
