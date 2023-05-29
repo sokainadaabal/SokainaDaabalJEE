@@ -1,0 +1,95 @@
+
+/* Styles de la section héros */
+.hero {
+  background-image: url('src/assets/image.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-content {
+  text-align: center;
+  color: #fff;
+  font-family: "Book Antiqua";
+  font-style: normal;
+}
+
+.hero-content h2 {
+  font-size: 46px;
+  margin: 0;
+}
+
+.hero-content p {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: rgba(0, 123, 255, 0.89);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 25px;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+
+/* Styles de la section des fonctionnalités */
+.features {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0;
+}
+
+.feature {
+  text-align: center;
+  margin: 0 20px;
+}
+
+.feature h3 {
+  font-size: 24px;
+}
+
+.feature p {
+  font-size: 16px;
+}
+
+
+.card {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  height: 500px;
+}
+
+.card-img {
+  width: 100%;
+  height: auto;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card-title {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.card-text {
+  font-size: 16px;
+  color: #888;
+  margin-bottom: 10px;
+}
+

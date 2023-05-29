@@ -1,0 +1,42 @@
+<div class="container">
+   <ng-template #failure>
+     <div class="card-body">
+      <p class="card-text"> No accounts found</p>
+     </div>
+   </ng-template>
+    <div class="alert alert-primary mt-4" role="alert">
+      <h4 class="alert-heading">Customer Information</h4>
+      <p> <label > ID :  </label> <label class="m-1"> <strong> {{customerId}}</strong></label> </p>
+      <p> <label > Name :  </label> <label class="m-1"> <strong>  {{customer.name}}</strong></label> </p>
+      <hr>
+      <p class="mb-0"> <label >Email :</label> <label class="m-1"> <strong>{{customer.email}}</strong></label> </p>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <h3> Accounts Information</h3>
+      </div>
+      <ng-container *ngIf="listAccount | async as accountList;else failure">
+        <div class="card-body">
+          <table class="table">
+            <thead class="text-center ">
+            <th> Account Number</th>
+            <th> Account Type</th>
+            <th> Balance</th>
+            <th></th>
+            </thead>
+            <tbody class="text-center ">
+              <tr *ngFor="let account of accountList">
+                <td>{{account.id}}</td>
+                <td>{{account.type}}</td>
+                <td>{{account.balance | number : '1.2-2'}} MAD</td>
+                <td>
+                  <button class="btn btn-outline-warning" (click)="handleAccount(account)"><i class="bi bi-eye-slash" ></i></button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </ng-container>
+    </div>
+
+</div>

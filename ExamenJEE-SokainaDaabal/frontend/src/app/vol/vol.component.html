@@ -1,0 +1,53 @@
+<div class="container mt-2 justify-content-center">
+  <ng-container *ngIf="vols | async as listvols; else failureOrLading">
+    <div class="card">
+      <div class="card-header">
+        <h3>Vols</h3>
+      </div>
+      <div class="card-body" >
+          <div *ngIf="searchformGroup">
+            <form [formGroup]="searchformGroup" (ngSubmit)="handleSearchCustomer()">
+              <div class="input-group">
+                <label class="input-group-text">Search Vol : </label>
+                <input type="text" formControlName="keyword" class="form-control">
+                <button class="btn btn-info "> <i class="bi bi-search"></i> </button>
+              </div>
+            </form>
+          </div>
+
+        <table class="table mt-4">
+          <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Date Arrive</th>
+            <th scope="col">Date depart</th>
+            <th scope="col">Action</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let vol of vols | async">
+            <td>{{vol.id}}</td>
+            <td>{{vol.dateDepart}}</td>
+            <td>{{vol.dateArrivee}}</td>
+            <td></td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="card-footer">
+
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-template #failureOrLading>
+    <ng-container *ngIf="errorMessage; else loading">
+      <div class="text-danger"> {{errorMessage}} </div>
+    </ng-container>
+    <ng-template #loading>
+      Loading ....
+    </ng-template>
+  </ng-template>
+
+</div>
+

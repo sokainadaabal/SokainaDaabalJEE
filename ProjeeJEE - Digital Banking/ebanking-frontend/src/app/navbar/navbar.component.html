@@ -1,0 +1,54 @@
+<nav class="navbar navbar-expand-lg navbar-light"  style="background-color: #f0f0f0;">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">DigiBanking</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item" *ngIf="user">
+          <a class="nav-link active" aria-current="page" routerLink="/accounts" >Account</a>
+        </li>
+        <li class="nav-item dropdown"  *ngIf="user">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Customer
+          </a>
+          <ng-container *ngIf="!AdminRole; else admin">
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" routerLink="/customers">Search customer</a></li>
+            </ul>
+          </ng-container>
+          <ng-template #admin>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" routerLink="/customers">Search customer</a></li>
+              <li><a class="dropdown-item" routerLink="/new-customer" >New customer</a></li>
+            </ul>
+          </ng-template>
+        </li>
+      </ul>
+      <ng-container *ngIf="!user; else authenticated">
+        <a routerLink="/login" class="btn"><i class="bi bi-door-open"></i></a>
+      </ng-container>
+      <ng-template #authenticated>
+        <ul class="navbar-nav" >
+          <li class="nav-item">
+            <a class="nav-link" style="color:#000; font-style: italic;">{{user?.username}}</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn" (click)="logout()">
+                <i class="bi-door-closed"></i>
+            </a>
+          </li>
+        </ul>
+      </ng-template>
+    </div>
+  </div>
+</nav>
+
+
+
+
+

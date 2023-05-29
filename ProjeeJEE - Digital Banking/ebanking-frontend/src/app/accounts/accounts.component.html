@@ -1,0 +1,104 @@
+<div class="container mt-2">
+  <div class="row">
+    <div class="col col-md-8">
+      <div class="card">
+        <div class="card-header">
+          <h3> Account</h3>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="accountFormGroup" (ngSubmit)="handleSearchAccout()" >
+            <div class="input-group">
+              <label class="input-group-text"> Account ID </label>
+              <input type="text" formControlName="accountId" class="form-control">
+              <button class="btn btn-primary"> <i class="bi bi-search"></i></button>
+            </div>
+          </form>
+          <ng-template #errorTemplate>
+              <ng-container *ngIf="errorMessage; else loading">
+                <div class="text-danger">
+                  {{errorMessage}}
+                </div>
+              </ng-container>
+          </ng-template>
+          <ng-template #loading>
+            <div class="d-flex justify-content-center m-4">
+              <div class="spinner-border text-primary" role="status">
+                <span class="sr-only"></span>
+              </div>
+            </div>
+          </ng-template>
+          <ng-container *ngIf="operationAccount | async as accountDetails; else errorTemplate">
+              <div class="alert alert-primary m-2" role="alert">
+                <h4 class="alert-heading">Account Information</h4>
+                <p> <label >Account ID :  </label> <label class="mb-1"> <strong>{{accountDetails.accountId}}</strong></label> </p>
+                <p> <label >Type :  </label> <label class="mb-1"> <strong>{{accountDetails.type}}</strong></label> </p>
+                <hr>
+                <p class="mb-0"> <label class="mb-1">Balance :</label> <label> <strong>{{accountDetails.balance | number : '1.2-2'}}</strong></label> MAD.</p>
+              </div>
+
+              <table class="table">
+                <thead class="text-center justify-content-center">
+                  <th>ID</th>
+                  <th>Date & Heure</th>
+                  <th>Type</th>
+                  <th>Description</th>
+                  <th>Amount </th>
+                </thead>
+                <tbody class="text-center">
+                  <tr *ngFor="let operation of accountDetails.accountOperationDTOS | paginate: { itemsPerPage: sizePage, currentPage: currentPage , totalItems: totalePage }">
+                    <td>{{operation.id}}</td>
+                    <td>{{operation.operationDate | date : "dd/MM/yyyy HH:MM"}}</td>
+                    <td>{{operation.type}}</td>
+                    <td>{{operation.description}}</td>
+                    <td class="text-center">{{operation.amount | number :'1.2-2'}} MAD</td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="align-middle text-center">
+                <pagination-controls (pageChange)="gotToPage($event)"></pagination-controls>
+              </div>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+    <div class="col col-md-4">
+     <div class="card" *ngIf="operationAccount">
+       <div class="card-header">
+         <h3> Operations </h3>
+       </div>
+       <div class="card-body">
+         <form method="post" [formGroup]="operationFormGroup" (ngSubmit)="handlAccountOpperation()" >
+           <div class="form-check form-check-inline">
+             <label class="form-check-label" for="debit">Debit</label>
+             <input type="radio" formControlName="operationType" class="form-check-input" value="DEBIT" id="debit"/>
+           </div>
+           <div class="form-check form-check-inline">
+             <label class="form-check-label" for="credit"> Credit </label>
+             <input type="radio" formControlName="operationType" class="form-check-input" value="CREDIT" id="credit"/>
+           </div>
+           <div class="form-check form-check-inline">
+             <label class="form-check-label" for="transfer"> Transfer </label>
+             <input type="radio" formControlName="operationType" class="form-check-input" value="TRANSFER" id="transfer"/>
+           </div>
+           <div class="mb-3" *ngIf="'TRANSFER'==operationFormGroup.value.operationType">
+             <label class="form-label"> Account Destination</label>
+             <input type="text" formControlName="accountDestination" class="form-control" />
+           </div>
+           <div class="mb-3">
+             <label class="form-label"> Amount</label>
+             <input type="text" formControlName="amount" class="form-control" />
+           </div>
+           <div class="mb-3">
+             <label class="form-label"> Description</label>
+             <input type="text" formControlName="description" class="form-control" />
+           </div>
+
+           <div class="d-grid mb-3">
+             <button class="btn btn-outline-success"><i class="bi bi-database-fill-add"></i> Save Operation</button>
+           </div>
+         </form>
+       </div>
+     </div>
+    </div>
+  </div>
+</div>
