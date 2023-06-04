@@ -13,6 +13,9 @@
    - [Création d'un service web SOAP et client en java et php](https://github.com/sokainadaabal/SokainaDaabalJEE/tree/main/Activit%C3%A9%20Pratique%20N%C2%B05)
 ## Activité Pratique N° 6 : Mise en oeuvre d'un micro-service
    - [Création d'un micro-Service](https://github.com/sokainadaabal/SokainaDaabalJEE/edit/main/Activit%C3%A9%20Pratique%20N%C2%B06)
+
+## Activité Pratique N°7 : Mise en oeuvre d'une architecture micro-services avec Spring cloud
+   - [micro-service](https://github.com/sokainadaabal/SokainaDaabalJEE/tree/main/Activit%C3%A9%20Pratique%20N%C2%B07/customer-service)
 ## Framework Injection des dépendance
    -  [FrameWork](https://github.com/sokainadaabal/SokainaDaabalJEE/tree/main/Framework%20Injection%20des%20d%C3%A9pendance/FrameworkSpringJava)
    -  [Test FrameWork](https://github.com/sokainadaabal/SokainaDaabalJEE/tree/main/Framework%20Injection%20des%20d%C3%A9pendance/TestFrameworkISpringJava)
